@@ -5,6 +5,8 @@ module it.unical.demacs.progetto.cbeat.cbeat {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
 
+    requires java.net.http;
+
     opens it.unical.demacs.progetto.cbeat.cbeat to javafx.fxml;
     exports it.unical.demacs.progetto.cbeat.cbeat;
 }
