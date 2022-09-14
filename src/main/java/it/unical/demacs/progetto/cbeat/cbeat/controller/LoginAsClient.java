@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class LoginAsClient implements Initializable {
     @FXML
@@ -41,13 +42,12 @@ public class LoginAsClient implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //TODO limite di caratteri
         this.tableTextArea.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if( tableTextArea.getText().length() > 2 ){
+                if( !Pattern.matches( "\\d{0,2}", tableTextArea.getText() )){
                     tableTextArea.setText(
-                            tableTextArea.getText().substring(0, 2)
+                            tableTextArea.getText().substring(0, 2) //TODO escludere i caratteri dall'input
                     );
                 }
             }
