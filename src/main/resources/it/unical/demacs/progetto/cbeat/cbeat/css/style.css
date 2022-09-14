@@ -1,7 +1,41 @@
 *{
-    -primary: #442303;
-    -secondary: #BE7122;
-    -tertiary: #D49D3F;
-    -quaternary: #FFA509;
-    -textcolor: #FFEF89;
+    primary: #442303;
+    secondary: #BE7122;
+    tertiary: #D49D3F;
+    quaternary: #FFA509;
+    textcolor: #FFEF89;
+
+    quaternary-hovered: #ffb433;
+
+    base: #FFFFFF;
 }
+
+.button{
+    -fx-background-color: quaternary;
+    -fx-font-weight: bold;
+    -fx-text-fill: primary;
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 25px;
+}
+
+.text-field{
+    -fx-background-color: base;
+
+    -fx-border-color: grey;
+    -fx-border-radius: 25px;
+    -fx-background-radius: 25px;
+}
+
+.button:hover{
+    -fx-background-color: quaternary-hovered;
+    -fx-text-fill: white;
+}
+
+.login{
+    -fx-background-color: linear-gradient( from 0% 0% to 100% 0%, white, transparent);
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsClient">
+   <children>
+      <Button fx:id="goBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="[back]" />
+      <Label fx:id="welcomeLabel" layoutX="270.0" layoutY="227.0" styleClass="login" text="[inserisci testo]" />
+      <TextField fx:id="tableTextArea" alignment="CENTER" layoutX="279.0" layoutY="319.0" prefHeight="32.0" prefWidth="82.0" />
+      <Button fx:id="loginBtn" layoutX="414.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#loginAsClient" text="[conferma]" />
+   </children>
+</Pane>
