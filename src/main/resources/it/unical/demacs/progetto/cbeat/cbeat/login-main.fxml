@@ -6,12 +6,12 @@
 
 <VBox alignment="CENTER" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.MainLogin">
    <children>
-      <Button fx:id="clientLoginBtn" mnemonicParsing="false" onMouseClicked="#showClientLogin" text="[login as client]">
+      <Button fx:id="clientLoginBtn" mnemonicParsing="false" onMouseClicked="#showClientLogin" text="Accedi come cliente">
          <VBox.margin>
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </VBox.margin>
       </Button>
-      <Button fx:id="workerLoginBtn" mnemonicParsing="false" onMouseClicked="#showWorkerLogin" text="[login as worker]">
+      <Button fx:id="workerLoginBtn" mnemonicParsing="false" onMouseClicked="#showWorkerLogin" styleClass="secondary-button" text="Accesso per il personale">
          <VBox.margin>
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </VBox.margin>

@@ -12,11 +12,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsWorker">
    <children>
-      <Pane layoutX="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css">
          <children>
             <Button fx:id="goBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="[back]" />
-            <VBox layoutX="-10.0" layoutY="257.0" prefHeight="207.0" prefWidth="650.0">
+            <VBox alignment="CENTER" layoutX="-10.0" layoutY="257.0" prefHeight="207.0" prefWidth="650.0">
                <children>
+                  <Label fx:id="errorMessage" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Email">

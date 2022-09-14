@@ -45,11 +45,10 @@ public class LoginAsClient implements Initializable {
         this.tableTextArea.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if( !Pattern.matches( "\\d{0,2}", tableTextArea.getText() )){
-                    tableTextArea.setText(
-                            tableTextArea.getText().substring(0, 2) //TODO escludere i caratteri dall'input
-                    );
-                }
+                if (!newValue.matches("\\d"))
+                    tableTextArea.setText(newValue.replaceAll("[^\\d||.]", ""));
+                if (!tableTextArea.getText().matches("\\d{0,2}"))
+                    tableTextArea.setText(tableTextArea.getText().substring(0, 2));
             }
         });
         this.tableTextArea.setAlignment(Pos.CENTER);
