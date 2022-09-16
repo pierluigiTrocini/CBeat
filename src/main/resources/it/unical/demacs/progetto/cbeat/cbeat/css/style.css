@@ -47,3 +47,20 @@
     -fx-font-size: 14px;
 }
 
+.item-card{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+
+    -fx-background-color: linear-gradient(to top, black, transparent);
+}
+
+.item-card:hover{
+    -fx-border-radius: 2px;
+}
+
+.client-top-lane{
+    -fx-background-color: primary;
+}
+
+

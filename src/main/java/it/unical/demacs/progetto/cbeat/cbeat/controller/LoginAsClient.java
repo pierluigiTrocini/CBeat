@@ -36,7 +36,7 @@ public class LoginAsClient implements Initializable {
 
     @FXML
     void loginAsClient(MouseEvent event) {
-        System.out.println("è stato inserito il tavolo" + this.tableTextArea.getText());
+        SceneHandler.getInstance().createClientHomepageScene( this.tableTextArea.getText() );
     }
 
 

@@ -23,6 +23,14 @@ public class SceneHandler {
 
     private BorderPane loginBorderPane;
 
+    public void init( Stage stage ) throws IOException {
+        this.stage = stage;
+
+        createLoginScene();
+
+        this.stage.show();
+    }
+
     public void setLoginBorderPane(BorderPane loginBorderPane) {
         this.loginBorderPane = loginBorderPane;
     }
@@ -40,14 +48,6 @@ public class SceneHandler {
         this.stage.setResizable(resizable);
     }
 
-    public void init( Stage stage ) throws IOException {
-        this.stage = stage;
-
-        createLoginScene();
-
-        this.stage.show();
-    }
-
     public void createLoginScene() {
         try {
             if (this.scene == null)
@@ -56,12 +56,45 @@ public class SceneHandler {
                 this.scene.setRoot(loadRootFromFXML("login-view.fxml"));
 
             this.stage.setScene(scene);
-            mainSettings( Settings.loginTitle ,Settings.loginWidth, Settings.loginHeight, false);
+            mainSettings( Settings.loginTitle ,Settings.loginWidth, Settings.loginHeight, true);
 
 
         }catch (IOException exception){
             System.out.println("Impossibile aprire il file fxml");
         }
+    }
+
+
+    public void createClientHomepageScene( String table ){
+        try {
+            if (this.scene == null)
+                this.scene = new Scene(loadRootFromFXML("homepage-client.fxml"));
+            else
+                this.scene.setRoot(loadRootFromFXML("homepage-client.fxml"));
+
+            this.stage.setScene(scene);
+            mainSettings( Settings.clientTitle + table , Settings.homepageInitialWidth, Settings.homepageInitialHeight, true );
+
+        }catch (IOException exception){}
+
+
+    }
+
+
+
+    public void tmpItemCard(){
+        //TODO - la card va gestita come pane, e non come stage/scene
+
+        try{
+            if(this.scene == null)
+                this.scene = new Scene(loadRootFromFXML("item-card.fxml"));
+            else
+                this.scene.setRoot(loadRootFromFXML("item-card.fxml"));
+
+            this.stage.setScene(scene);
+            mainSettings( null, Settings.itemCardWidth, Settings.itemCardHeight, false );
+
+        }catch (IOException exception){}
     }
 
     public void showMainLogin() throws IOException {
@@ -78,6 +111,8 @@ public class SceneHandler {
         Pane pane = FXMLLoader.load(HelloApplication.class.getResource("login-as-worker.fxml"));
         this.loginBorderPane.setLeft(pane);
     }
+
+
 
 
 
