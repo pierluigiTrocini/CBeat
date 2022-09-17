@@ -1,6 +1,9 @@
 package it.unical.demacs.progetto.cbeat.cbeat.utility;
 
 public class Settings {
+    /* Sample information */
+    public static final String samplePath = "it/unical/demacs/progetto/cbeat/cbeat/sample/";
+
     /* Api information */
     public static final String apikey = "1";
 
