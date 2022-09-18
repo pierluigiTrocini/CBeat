@@ -4,19 +4,12 @@ public class Item {
     private String name;
     private String imagePath;
 
-    public String name() {
-        return name;
-    }
+    public String name() { return name; }
 
-    public void setName(String name) {
+    public String imagePath() { return imagePath; }
+
+    public Item(String name, String imagePath) {
         this.name = name;
-    }
-
-    public String imagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
 }
