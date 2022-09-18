@@ -3,6 +3,7 @@ package it.unical.demacs.progetto.cbeat.cbeat.model;
 public class Item {
     private String name;
     private String imagePath;
+    private String itemId;
 
     public String name() { return name; }
 

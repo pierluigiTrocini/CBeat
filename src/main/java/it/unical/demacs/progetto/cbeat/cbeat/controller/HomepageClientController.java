@@ -1,6 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.APIHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.model.Item;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
@@ -43,20 +44,19 @@ public class HomepageClientController implements Initializable {
         this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
         this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
 
-        try {
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
+//            Parent pane = (Parent) fxmlLoader.load();
+//            ItemCardController controller = fxmlLoader.getController();
+//
+//            controller.init( "margarita", "image.jpg" );
+//
+//            this.itemList.getChildren().add(pane);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
-            Parent pane = (Parent) fxmlLoader.load();
-            ItemCardController controller = fxmlLoader.getController();
-
-            controller.init( "margarita", "image.jpg" );
-
-            this.itemList.getChildren().add(pane);
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //APIHandler.getInstance().initHomepage();
 
 
     }
