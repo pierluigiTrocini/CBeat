@@ -5,6 +5,7 @@ module it.unical.demacs.progetto.cbeat.cbeat {
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
     requires org.json;
+    requires org.xerial.sqlitejdbc;
 
 
     requires java.net.http;
