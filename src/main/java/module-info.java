@@ -6,6 +6,7 @@ module it.unical.demacs.progetto.cbeat.cbeat {
     requires org.kordamp.ikonli.javafx;
     requires org.json;
     requires org.xerial.sqlitejdbc;
+    requires jai.imageio.core;
 
 
     requires java.net.http;
