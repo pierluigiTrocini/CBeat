@@ -4,8 +4,9 @@ public class Settings {
     /* Sample information */
     public static final String samplePath = "it/unical/demacs/progetto/cbeat/cbeat/sample/";
 
-    /* Api information */
+    /* Api and Database information */
     public static final String apikey = "1";
+    public static final String databaseUrl = "jdbc:sqlite:localDatabase.db";
 
     /* General */
     public static final String mainTitle = "Beat";

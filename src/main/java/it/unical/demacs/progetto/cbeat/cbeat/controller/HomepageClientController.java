@@ -1,27 +1,16 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
-import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.APIHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.model.Item;
-import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class HomepageClientController implements Initializable {
@@ -56,7 +45,13 @@ public class HomepageClientController implements Initializable {
 //            e.printStackTrace();
 //        }
 
-        //APIHandler.getInstance().initHomepage();
+        try {
+            DatabaseHandler.getInstance().updateLocalDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }

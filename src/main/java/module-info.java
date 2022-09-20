@@ -4,9 +4,10 @@ module it.unical.demacs.progetto.cbeat.cbeat {
 
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
-    requires org.json;
+    requires com.google.gson;
     requires org.xerial.sqlitejdbc;
-    requires jai.imageio.core;
+    requires java.sql;
+
 
 
     requires java.net.http;
