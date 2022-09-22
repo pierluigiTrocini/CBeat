@@ -45,14 +45,6 @@ public class HomepageClientController implements Initializable {
 //            e.printStackTrace();
 //        }
 
-        try {
-            DatabaseHandler.getInstance().updateLocalDatabase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
 
     }
 

@@ -1,16 +1,22 @@
 package it.unical.demacs.progetto.cbeat.cbeat;
 
+import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import javafx.application.Application;
 
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        SceneHandler.getInstance().init(stage);
+    public void start(Stage stage) throws IOException, SQLException {
+        //SceneHandler.getInstance().init(stage);
+
+        DatabaseHandler.getInstance().updateLocalDatabase();
+
     }
 
     public static void main(String[] args) {launch();}

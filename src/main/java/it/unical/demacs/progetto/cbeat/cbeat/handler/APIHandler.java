@@ -17,7 +17,7 @@ public class APIHandler {
     public static APIHandler getInstance(){ return instance; }
 
     public JsonObject searchFromText( String content ) throws IOException{
-        URLConnection request = ( new URL("https://www.thecocktaildb.com/api/json/v1/" + Settings.apikey + "/search.php?s=" + content)).openConnection();
+        URLConnection request = ( new URL("https://www.thecocktaildb.com/api/json/v1/" + Settings.apikey + "/search.php?f=" + content)).openConnection();   // f -> first letter
         request.connect();
 
         JsonParser parser = new JsonParser();
