@@ -21,7 +21,7 @@ public class ItemCardController {
 
     public void init( String label, String imageSrc ){
         this.itemLabel.setText(label);
-        this.itemImage.setImage( new Image(HelloApplication.class.getResourceAsStream(imageSrc))  );
+        this.itemImage.setImage( new Image(imageSrc)  );
     }
 
 }

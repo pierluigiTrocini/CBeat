@@ -9,10 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.*;
 
 public class DatabaseHandler{
@@ -92,4 +89,24 @@ public class DatabaseHandler{
 
         this.databaseClose();
     }
+
+    public ResultSet queryForCards() throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return null;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.cardQuery);
+        return statement.executeQuery();
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+

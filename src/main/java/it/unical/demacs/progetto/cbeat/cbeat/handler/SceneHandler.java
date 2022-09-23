@@ -75,7 +75,7 @@ public class SceneHandler {
             this.stage.setScene(scene);
             mainSettings( Settings.clientTitle + table , Settings.homepageInitialWidth, Settings.homepageInitialHeight, true );
 
-        }catch (IOException exception){}
+        }catch (IOException exception){ exception.printStackTrace(); }
 
 
     }

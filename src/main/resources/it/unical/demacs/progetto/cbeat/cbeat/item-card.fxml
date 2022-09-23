@@ -11,9 +11,6 @@
 <Pane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.ItemCardController">
    <children>
       <ImageView fx:id="itemImage" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image.jpg" />
-         </image>
       </ImageView>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="item-card" stylesheets="@css/style.css">
          <bottom>

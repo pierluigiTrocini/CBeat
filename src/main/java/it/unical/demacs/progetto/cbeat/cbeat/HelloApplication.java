@@ -13,9 +13,8 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        //SceneHandler.getInstance().init(stage);
-
-        DatabaseHandler.getInstance().updateLocalDatabase();
+        SceneHandler.getInstance().init(stage);
+//        DatabaseHandler.getInstance().updateLocalDatabase();
 
     }
 
