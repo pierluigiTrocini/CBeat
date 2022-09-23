@@ -21,7 +21,7 @@ public class APIHandler {
         request.connect();
 
         JsonParser parser = new JsonParser();
-        JsonElement root = parser.parse( new InputStreamReader( (InputStream) request.getContent()));
-        return  root.getAsJsonObject();
+        JsonObject root = (JsonObject) parser.parse( new InputStreamReader( (InputStream) request.getContent()));
+        return  root;
     }
 }

@@ -39,59 +39,59 @@ public class DatabaseHandler{
     }
 
     public void updateLocalDatabase() throws IOException, SQLException {
+        int iterations = 0;
         for( char alphabet = 'a';  alphabet <= 'z'; alphabet++ ) {
-
             System.out.println("[DEBUG] lettera: " + alphabet);
-            try {
-                JsonArray array = (APIHandler.getInstance().searchFromText(String.valueOf(alphabet))).get("drinks").getAsJsonArray();
+
+            JsonObject jsonObject = APIHandler.getInstance().searchFromText(String.valueOf(alphabet));
+            if (!jsonObject.get("drinks").isJsonNull()) {
+                JsonArray array = jsonObject.getAsJsonArray("drinks");
                 for (int i = 0; i < array.size(); i++) {
+                    JsonObject object = array.get(i).getAsJsonObject();
                     PreparedStatement stmt = connection.prepareStatement(Settings.insertionQuery);
 
-                    Map<String, String> object = (new Gson()).fromJson(array.get(i).getAsJsonObject(), Map.class);
-
-                    stmt.setString(1, object.get("idDrink"));
-                    stmt.setString(2, object.get("strDrink"));
-                    stmt.setString(3, object.get("strAlcoholic"));
-                    stmt.setString(4, object.get("strDrinkThumb"));
-                    stmt.setString(5, object.get("strInstructionsIT"));
-                    stmt.setString(6, object.get("strIngredient1"));
-                    stmt.setString(7, object.get("strIngredient2"));
-                    stmt.setString(8, object.get("strIngredient3"));
-                    stmt.setString(9, object.get("strIngredient4"));
-                    stmt.setString(10, object.get("strIngredient5"));
-                    stmt.setString(11, object.get("strIngredient6"));
-                    stmt.setString(12, object.get("strIngredient7"));
-                    stmt.setString(13, object.get("strIngredient8"));
-                    stmt.setString(14, object.get("strIngredient9"));
-                    stmt.setString(15, object.get("strIngredient10"));
-                    stmt.setString(16, object.get("strIngredient11"));
-                    stmt.setString(17, object.get("strIngredient12"));
-                    stmt.setString(18, object.get("strIngredient13"));
-                    stmt.setString(19, object.get("strIngredient14"));
-                    stmt.setString(20, object.get("strIngredient15"));
-                    stmt.setString(21, object.get("strMeasure1"));
-                    stmt.setString(22, object.get("strMeasure2"));
-                    stmt.setString(23, object.get("strMeasure3"));
-                    stmt.setString(24, object.get("strMeasure4"));
-                    stmt.setString(25, object.get("strMeasure5"));
-                    stmt.setString(26, object.get("strMeasure6"));
-                    stmt.setString(27, object.get("strMeasure7"));
-                    stmt.setString(28, object.get("strMeasure8"));
-                    stmt.setString(29, object.get("strMeasure9"));
-                    stmt.setString(30, object.get("strMeasure10"));
-                    stmt.setString(31, object.get("strMeasure11"));
-                    stmt.setString(32, object.get("strMeasure12"));
-                    stmt.setString(33, object.get("strMeasure13"));
-                    stmt.setString(34, object.get("strMeasure14"));
-                    stmt.setString(35, object.get("strMeasure15"));
+                    stmt.setString(1, String.valueOf(object.get("idDrink")));
+                    stmt.setString(2, String.valueOf(object.get("strDrink")));
+                    stmt.setString(3, String.valueOf(object.get("strAlcoholic")));
+                    stmt.setString(4, String.valueOf(object.get("strDrinkThumb")));
+                    stmt.setString(5, String.valueOf(object.get("strInstructionsIT")));
+                    stmt.setString(6, String.valueOf(object.get("strIngredient1")));
+                    stmt.setString(7, String.valueOf(object.get("strIngredient2")));
+                    stmt.setString(8, String.valueOf(object.get("strIngredient3")));
+                    stmt.setString(9, String.valueOf(object.get("strIngredient4")));
+                    stmt.setString(10, String.valueOf(object.get("strIngredient5")));
+                    stmt.setString(11, String.valueOf(object.get("strIngredient6")));
+                    stmt.setString(12, String.valueOf(object.get("strIngredient7")));
+                    stmt.setString(13, String.valueOf(object.get("strIngredient8")));
+                    stmt.setString(14, String.valueOf(object.get("strIngredient9")));
+                    stmt.setString(15, String.valueOf(object.get("strIngredient10")));
+                    stmt.setString(16, String.valueOf(object.get("strIngredient11")));
+                    stmt.setString(17, String.valueOf(object.get("strIngredient12")));
+                    stmt.setString(18, String.valueOf(object.get("strIngredient13")));
+                    stmt.setString(19, String.valueOf(object.get("strIngredient14")));
+                    stmt.setString(20, String.valueOf(object.get("strIngredient15")));
+                    stmt.setString(21, String.valueOf(object.get("strMeasure1")));
+                    stmt.setString(22, String.valueOf(object.get("strMeasure2")));
+                    stmt.setString(23, String.valueOf(object.get("strMeasure3")));
+                    stmt.setString(24, String.valueOf(object.get("strMeasure4")));
+                    stmt.setString(25, String.valueOf(object.get("strMeasure5")));
+                    stmt.setString(26, String.valueOf(object.get("strMeasure6")));
+                    stmt.setString(27, String.valueOf(object.get("strMeasure7")));
+                    stmt.setString(28, String.valueOf(object.get("strMeasure8")));
+                    stmt.setString(29, String.valueOf(object.get("strMeasure9")));
+                    stmt.setString(30, String.valueOf(object.get("strMeasure10")));
+                    stmt.setString(31, String.valueOf(object.get("strMeasure11")));
+                    stmt.setString(32, String.valueOf(object.get("strMeasure12")));
+                    stmt.setString(33, String.valueOf(object.get("strMeasure13")));
+                    stmt.setString(34, String.valueOf(object.get("strMeasure14")));
+                    stmt.setString(35, String.valueOf(object.get("strMeasure15")));
 
                     stmt.execute();
+                    iterations++;
                 }
-            }catch ( JsonIOException exception ){ exception.printStackTrace(); }
+            }
         }
-
+        System.out.println("elementi caricati: " + iterations);
         this.databaseClose();
     }
-
-
 }
