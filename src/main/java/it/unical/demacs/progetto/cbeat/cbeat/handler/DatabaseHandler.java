@@ -39,9 +39,8 @@ public class DatabaseHandler{
     }
 
     public void updateLocalDatabase() throws IOException, SQLException {
-        int iterations = 0;
+
         for( char alphabet = 'a';  alphabet <= 'z'; alphabet++ ) {
-            System.out.println("[DEBUG] lettera: " + alphabet);
 
             JsonObject jsonObject = APIHandler.getInstance().searchFromText(String.valueOf(alphabet));
             if (!jsonObject.get("drinks").isJsonNull()) {
@@ -87,11 +86,10 @@ public class DatabaseHandler{
                     stmt.setString(35, String.valueOf(object.get("strMeasure15")));
 
                     stmt.execute();
-                    iterations++;
                 }
             }
         }
-        System.out.println("elementi caricati: " + iterations);
+
         this.databaseClose();
     }
 }
