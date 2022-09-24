@@ -26,6 +26,8 @@ public class Settings {
     public static final Double homepageInitialHeight = 720.0;
 
     /* Api and Database information */
+    public static final int ingredientSize = 15;
+
     public static final String apikey = "1";
     public static final String databaseUrl = "jdbc:sqlite:localDatabase.db";
     public static final String insertionQuery ="""
@@ -37,7 +39,7 @@ public class Settings {
             select strDrink, strDrinkThumb
             from Drink
             order by strDrinkThumb
-            limit 1;
+            limit 20;
             """;
 
     public static final String drinkInfo= """

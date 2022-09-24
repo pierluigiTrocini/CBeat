@@ -64,6 +64,11 @@
 }
 
 .drink-info{
+    -fx-background-color: linear-gradient( to top, white, transparent ),
+                          linear-gradient( to bottom, white, transparent );
+
+
+
     -fx-text-fill: primary;
     -fx-font-size: 24px;
     -fx-font-weight: bold;

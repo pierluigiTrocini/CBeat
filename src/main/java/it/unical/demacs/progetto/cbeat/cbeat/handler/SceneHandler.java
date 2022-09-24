@@ -112,7 +112,6 @@ public class SceneHandler {
         DrinkInfoController controller = loader.getController();
 
         StyleHandler.getInstance().setBlurEffect();
-
         controller.init( drinkName );
 
         this.homepageClientStackPane.getChildren().add(pane);

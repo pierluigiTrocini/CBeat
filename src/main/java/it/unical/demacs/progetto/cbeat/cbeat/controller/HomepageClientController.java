@@ -57,9 +57,8 @@ public class HomepageClientController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
                 Parent pane = (Parent) fxmlLoader.load();
                 ItemCardController controller = fxmlLoader.getController();
-                controller.init( set.getString("strDrink").replace("\"", ""), set.getString("strDrinkThumb").replace("\"", "") );
-
-
+                controller.init( set.getString("strDrink").replace("\"", ""),
+                        set.getString("strDrinkThumb").replace("\"", "") );
 
                 this.itemList.getChildren().add(pane);
 

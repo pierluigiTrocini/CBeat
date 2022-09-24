@@ -1,9 +1,13 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
+import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -13,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,22 +55,30 @@ public class DrinkInfoController implements Initializable {
         this.ingredientList.prefHeightProperty().bind( this.infoVBox.prefHeightProperty() );
     }
 
-    public void init( String drinkName ) throws SQLException {
+    public void init( String drinkName ) throws SQLException, IOException {
         ResultSet set = DatabaseHandler.getInstance().queryInformations(drinkName);
         if( set != null ){
 
             this.drinkTitle.setText( set.getString("strDrink").replace("\"", "") );
             this.drinkImage.setImage( new Image( set.getString("strDrinkThumb").replace("\"", "") ));
 
-            //TODO - lista ingredienti
+            for( int i = 1; i <= Settings.ingredientSize; i++){
 
+                if( set.getString( "strIngredient" + Integer.toString(i) ).compareTo("null") != 0  ){
+                    FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("ingredient-button.fxml"));
+                    Parent button = (Parent) loader.load();
+                    IngredientButton controller = loader.getController();
+
+
+                    controller.init( set.getString( "strIngredient" + Integer.toString(i) ).replace("\"", "") );
+
+                    this.ingredientList.getChildren().add(button);
+                }
+            }
         }
         else{
             System.out.println("[ DrinkInfoController ]nessuna informazione [ farne una grafica ]");
         }
-
-
-
     }
 
     @FXML
