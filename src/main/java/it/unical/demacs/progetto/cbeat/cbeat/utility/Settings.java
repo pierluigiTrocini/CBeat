@@ -17,8 +17,8 @@ public class Settings {
     public static final Double loginHeight = 720.0;
 
     /* Item card */
-    public static final Double itemCardWidth = 200.0;
-    public static final Double itemCardHeight = 200.0;
+    public static final Double itemCardWidth = 150.0;
+    public static final Double itemCardHeight = 150.0;
 
     /* Homepage */
     public static final String clientTitle = mainTitle + " - Tavolo ";
@@ -34,9 +34,16 @@ public class Settings {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """;
     public static final String cardQuery= """
-            select *
+            select strDrink, strDrinkThumb
             from Drink
             order by strDrinkThumb
+            limit 1;
+            """;
+
+    public static final String drinkInfo= """
+            select *
+            from Drink
+            where strDrink = ?
             limit 15;
             """;
 
