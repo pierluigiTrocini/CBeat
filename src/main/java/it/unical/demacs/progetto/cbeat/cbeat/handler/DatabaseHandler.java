@@ -108,6 +108,17 @@ public class DatabaseHandler{
         return statement.executeQuery();
     }
 
+    public ResultSet querySearch( String name ) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return null;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.searchQuery);
+        statement.setString(1, ( "%" + name + "%" ));
+
+        return statement.executeQuery();
+
+    }
+
 
 }
 

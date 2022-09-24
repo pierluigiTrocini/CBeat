@@ -14,13 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 
-import java.io.IOException;
+
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ResourceBundle;
 
 public class HomepageClientController implements Initializable {
@@ -55,8 +55,21 @@ public class HomepageClientController implements Initializable {
             APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
         } catch (Exception e) {
             // TODO  - Grafica per comunicare l'assenza di risultati
+            e.printStackTrace();
         }
 
+    }
+
+    @FXML
+    void searchByText(MouseEvent event) {
+        try {
+            if( this.searchText.getText().isEmpty() )
+                APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
+            else
+                APIHandler.getInstance().addCards(this.itemList, DatabaseHandler.getInstance().querySearch(this.searchText.getText()));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

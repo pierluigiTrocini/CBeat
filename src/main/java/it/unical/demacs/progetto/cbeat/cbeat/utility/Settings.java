@@ -39,14 +39,19 @@ public class Settings {
             select strDrink, strDrinkThumb
             from Drink
             order by strDrinkThumb
-            limit 20;
+            limit 1;
             """;
 
     public static final String drinkInfo= """
             select *
             from Drink
             where strDrink = ?
-            limit 15;
+            """;
+
+    public static final String searchQuery= """
+            select *
+            from Drink
+            where strDrink like ?;
             """;
 
 }

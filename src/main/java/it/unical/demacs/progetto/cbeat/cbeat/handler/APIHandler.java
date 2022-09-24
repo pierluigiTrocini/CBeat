@@ -33,6 +33,7 @@ public class APIHandler {
     }
 
     public void addCards(FlowPane flowPane, ResultSet set) throws SQLException, IOException {
+        flowPane.getChildren().clear();
 
         while ( set.next() ){
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
