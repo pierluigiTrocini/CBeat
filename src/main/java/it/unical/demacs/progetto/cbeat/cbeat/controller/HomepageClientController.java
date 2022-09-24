@@ -1,6 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.APIHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
@@ -50,22 +51,11 @@ public class HomepageClientController implements Initializable {
         this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
         this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
 
-        try{
-            ResultSet set = DatabaseHandler.getInstance().queryForCards();
-
-            while ( set.next() ){
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
-                Parent pane = (Parent) fxmlLoader.load();
-                ItemCardController controller = fxmlLoader.getController();
-                controller.init( set.getString("strDrink").replace("\"", ""),
-                        set.getString("strDrinkThumb").replace("\"", "") );
-
-                this.itemList.getChildren().add(pane);
-
-            }
-
-        }catch (Exception e ){ e.printStackTrace(); }
-
+        try {
+            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
+        } catch (Exception e) {
+            // TODO  - Grafica per comunicare l'assenza di risultati
+        }
 
     }
 

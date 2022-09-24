@@ -3,13 +3,20 @@ package it.unical.demacs.progetto.cbeat.cbeat.handler;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
+import it.unical.demacs.progetto.cbeat.cbeat.controller.ItemCardController;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.FlowPane;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class APIHandler {
     private static APIHandler instance = new APIHandler();
@@ -23,5 +30,20 @@ public class APIHandler {
         JsonParser parser = new JsonParser();
         JsonObject root = (JsonObject) parser.parse( new InputStreamReader( (InputStream) request.getContent()));
         return  root;
+    }
+
+    public void addCards(FlowPane flowPane, ResultSet set) throws SQLException, IOException {
+
+        while ( set.next() ){
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
+            Parent pane = (Parent) fxmlLoader.load();
+            ItemCardController controller = fxmlLoader.getController();
+            controller.init( set.getString("strDrink").replace("\"", ""),
+                    set.getString("strDrinkThumb").replace("\"", "") );
+
+            flowPane.getChildren().add(pane);
+
+        }
+
     }
 }
