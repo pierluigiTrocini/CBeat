@@ -105,12 +105,16 @@ public class HomepageClientController implements Initializable {
 
     @FXML
     void showOnlyAlcoholic(MouseEvent event) {
-
+        try{
+            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly(true) );
+        }catch (Exception e){ e.printStackTrace(); }
     }
 
     @FXML
     void showOnlyNotAlcoholic(MouseEvent event) {
-
+        try{
+            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly( true ) );
+        }catch (Exception e){ e.printStackTrace(); }
     }
 
 }

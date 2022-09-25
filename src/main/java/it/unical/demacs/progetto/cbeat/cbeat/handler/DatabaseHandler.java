@@ -119,6 +119,21 @@ public class DatabaseHandler{
 
     }
 
+    public ResultSet showOnly( Boolean alcoholic ) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return null;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.searchOnly);
+        if( alcoholic )
+            statement.setString(1, ( "\"Alcoholic\"" ));
+        else
+            statement.setString(1, ( "\"Non alcoholic\"" ));
+
+
+        return statement.executeQuery();
+
+    }
+
 
 }
 
