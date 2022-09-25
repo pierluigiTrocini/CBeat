@@ -6,6 +6,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.StackPane;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 public class StyleHandler {
     private static StyleHandler instance = new StyleHandler();
@@ -24,6 +25,13 @@ public class StyleHandler {
             -fx-border-width: 2px;
             """
         );
+    }
+
+    public FontIcon getIcon( String name, int size ){
+        FontIcon icon = new FontIcon(name);
+        icon.setIconSize(size);
+
+        return icon;
     }
 
     public void setBlurEffect(){

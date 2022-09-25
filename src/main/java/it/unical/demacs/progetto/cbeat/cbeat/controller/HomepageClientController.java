@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 
 import java.net.URL;
@@ -61,7 +62,7 @@ public class HomepageClientController implements Initializable {
         this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
         this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
 
-
+        this.cartBtn.setGraphic( StyleHandler.getInstance().getIcon("mdi2c-cart-variant", 35) );
 
         try {
             APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );

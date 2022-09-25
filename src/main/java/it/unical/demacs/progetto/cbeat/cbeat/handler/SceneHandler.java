@@ -114,6 +114,9 @@ public class SceneHandler {
         StyleHandler.getInstance().setBlurEffect();
         controller.init( drinkName );
 
+        controller.getBorderPane().prefHeightProperty().bind( this.homepageClientStackPane.heightProperty() );
+        controller.getBorderPane().prefWidthProperty().bind( this.homepageClientStackPane.widthProperty() );
+
         this.homepageClientStackPane.getChildren().add(pane);
     }
 

@@ -46,6 +46,7 @@ public class DrinkInfoController implements Initializable {
     @FXML
     private Button purchaseButton;
 
+    public BorderPane getBorderPane() { return borderPane; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

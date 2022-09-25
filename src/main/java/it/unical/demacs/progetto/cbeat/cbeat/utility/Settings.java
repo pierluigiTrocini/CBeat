@@ -39,7 +39,7 @@ public class Settings {
             select strDrink, strDrinkThumb
             from Drink
             order by strDrinkThumb
-            limit 15;
+            limit 18;
             """;
 
     public static final String drinkInfo= """
@@ -52,7 +52,7 @@ public class Settings {
             select *
             from Drink
             where strDrink like ?;
-            limit 15;
+            limit 18;
             """;
 
     public static final String searchOnly= """
@@ -60,7 +60,7 @@ public class Settings {
             from Drink
             where strAlcoholic = ?
             order by strDrinkThumb
-            limit 15;
+            limit 18;
             """;
 
 }
