@@ -5,6 +5,8 @@ import it.unical.demacs.progetto.cbeat.cbeat.handler.APIHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,6 +59,19 @@ public class HomepageClientController implements Initializable {
             // TODO  - Grafica per comunicare l'assenza di risultati
             e.printStackTrace();
         }
+
+        this.searchText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if( oldValue != newValue && !oldValue.isEmpty() && !newValue.isEmpty()  ){
+                    try {
+                        APIHandler.getInstance().addCards( itemList, DatabaseHandler.getInstance().querySearch(searchText.getText()) );
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
     }
 
