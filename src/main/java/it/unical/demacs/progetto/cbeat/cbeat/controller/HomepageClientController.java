@@ -12,9 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -26,7 +24,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomepageClientController implements Initializable {
-
     @FXML
     private FlowPane itemList;
 
@@ -42,16 +39,26 @@ public class HomepageClientController implements Initializable {
     @FXML
     private StackPane stackPane;
 
+    @FXML
+    private Button alcoholicBtn;
+
+    @FXML
+    private Button cartBtn;
+
+    @FXML
+    private Button notAlcoholicBtn;
+
+    @FXML
+    private Button randomBtn;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-
         SceneHandler.getInstance().setHomepageClientStackPane( this.stackPane );
         StyleHandler.getInstance().setHomepageClientStackPane( this.stackPane );
 
-        this.searchText.setPromptText("Es: long island");
-        this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
-        this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
+
 
         try {
             APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
@@ -84,6 +91,26 @@ public class HomepageClientController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void selectRandom(MouseEvent event) {
+
+    }
+
+    @FXML
+    void showCart(MouseEvent event) {
+
+    }
+
+    @FXML
+    void showOnlyAlcoholic(MouseEvent event) {
+
+    }
+
+    @FXML
+    void showOnlyNotAlcoholic(MouseEvent event) {
+
     }
 
 }

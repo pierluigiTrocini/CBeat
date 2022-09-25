@@ -5,6 +5,8 @@
     quaternary: #FFA509;
     textcolor: #FFEF89;
 
+    special-button: #8c1018;
+    special-hovered: #D91825;
     quaternary-hovered: #ffb433;
 
     base: #FFFFFF;
@@ -15,14 +17,6 @@
     -fx-font-weight: bold;
     -fx-text-fill: primary;
     -fx-font-size: 16px;
-
-    -fx-background-radius: 25px;
-}
-
-.secondary-button{
-    -fx-background-color: tertiary;
-    -fx-text-fill: primary;
-    -fx-font-size: 12px;
 
     -fx-background-radius: 25px;
 }
@@ -38,6 +32,35 @@
 .button:hover{
     -fx-background-color: quaternary-hovered;
     -fx-text-fill: white;
+}
+
+.button.button-selected{
+    -fx-background-color: quaternary-hovered;
+    -fx-text-fill: white;
+}
+
+.secondary-button{
+    -fx-background-color: tertiary;
+    -fx-text-fill: primary;
+    -fx-font-size: 12px;
+
+    -fx-background-radius: 25px;
+}
+
+.special-button{
+    -fx-background-color: special-button;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+
+    -fx-background-radius: 25px;
+}
+
+.special-button:hover{
+    -fx-background-color: special-hovered;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+
+    -fx-background-radius: 25px;
 }
 
 .login{
@@ -63,11 +86,17 @@
     -fx-background-color: primary;
 }
 
+.client-middle-lane{
+    -fx-background-color: tertiary;
+
+    -fx-text-fill: primary;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
 .drink-info{
     -fx-background-color: linear-gradient( to top, white, transparent ),
                           linear-gradient( to bottom, white, transparent );
-
-
 
     -fx-text-fill: primary;
     -fx-font-size: 24px;
