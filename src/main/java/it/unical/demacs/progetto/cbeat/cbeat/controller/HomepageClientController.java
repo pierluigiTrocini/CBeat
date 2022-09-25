@@ -58,6 +58,9 @@ public class HomepageClientController implements Initializable {
         SceneHandler.getInstance().setHomepageClientStackPane( this.stackPane );
         StyleHandler.getInstance().setHomepageClientStackPane( this.stackPane );
 
+        this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
+        this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
+
 
 
         try {
@@ -113,7 +116,7 @@ public class HomepageClientController implements Initializable {
     @FXML
     void showOnlyNotAlcoholic(MouseEvent event) {
         try{
-            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly( true ) );
+            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly( false ) );
         }catch (Exception e){ e.printStackTrace(); }
     }
 

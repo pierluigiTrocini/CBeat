@@ -16,6 +16,7 @@ public class HelloApplication extends Application {
         SceneHandler.getInstance().init(stage);
 //        DatabaseHandler.getInstance().updateLocalDatabase();
 
+
     }
 
     public static void main(String[] args) {launch();}

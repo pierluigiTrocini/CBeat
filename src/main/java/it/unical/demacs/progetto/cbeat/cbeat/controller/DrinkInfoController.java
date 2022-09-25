@@ -46,6 +46,7 @@ public class DrinkInfoController implements Initializable {
     @FXML
     private Button purchaseButton;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.infoVBox.prefWidthProperty().bind( this.borderPane.widthProperty() );

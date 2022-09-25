@@ -58,7 +58,8 @@ public class Settings {
     public static final String searchOnly= """
             select *
             from Drink
-            where strAlcoholic = ?;
+            where strAlcoholic = ?
+            order by strDrinkThumb
             limit 15;
             """;
 
