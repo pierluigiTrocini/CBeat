@@ -58,6 +58,7 @@ public class HomepageClientController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         SceneHandler.getInstance().setHomepageClientStackPane( this.stackPane );
         StyleHandler.getInstance().setHomepageClientStackPane( this.stackPane );
+        APIHandler.getInstance().setItemList( this.itemList );
 
         this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
         this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
@@ -65,7 +66,7 @@ public class HomepageClientController implements Initializable {
         this.cartBtn.setGraphic( StyleHandler.getInstance().getIcon("mdi2c-cart-variant", 35) );
 
         try {
-            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
+            APIHandler.getInstance().addCards( DatabaseHandler.getInstance().queryForCards() );
         } catch (Exception e) {
             // TODO  - Grafica per comunicare l'assenza di risultati
             e.printStackTrace();
@@ -76,9 +77,9 @@ public class HomepageClientController implements Initializable {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 try {
                     if (newValue.isEmpty())
-                        APIHandler.getInstance().addCards(itemList, DatabaseHandler.getInstance().queryForCards());
+                        APIHandler.getInstance().addCards(DatabaseHandler.getInstance().queryForCards());
                     if (oldValue != newValue && !oldValue.isEmpty() && !newValue.isEmpty() && ( newValue.length() > oldValue.length() ) )
-                        APIHandler.getInstance().addCards(itemList, DatabaseHandler.getInstance().querySearch(searchText.getText()));
+                        APIHandler.getInstance().addCards(DatabaseHandler.getInstance().querySearch(searchText.getText()));
                 }catch ( Exception e ){ e.printStackTrace(); }
             }
         });
@@ -89,9 +90,9 @@ public class HomepageClientController implements Initializable {
     void searchByText(MouseEvent event) {
         try {
             if( this.searchText.getText().isEmpty() )
-                APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().queryForCards() );
+                APIHandler.getInstance().addCards( DatabaseHandler.getInstance().queryForCards() );
             else
-                APIHandler.getInstance().addCards(this.itemList, DatabaseHandler.getInstance().querySearch(this.searchText.getText()));
+                APIHandler.getInstance().addCards( DatabaseHandler.getInstance().querySearch(this.searchText.getText()));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -110,14 +111,14 @@ public class HomepageClientController implements Initializable {
     @FXML
     void showOnlyAlcoholic(MouseEvent event) {
         try{
-            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly(true) );
+            APIHandler.getInstance().addCards( DatabaseHandler.getInstance().showOnly(true) );
         }catch (Exception e){ e.printStackTrace(); }
     }
 
     @FXML
     void showOnlyNotAlcoholic(MouseEvent event) {
         try{
-            APIHandler.getInstance().addCards( this.itemList, DatabaseHandler.getInstance().showOnly( false ) );
+            APIHandler.getInstance().addCards( DatabaseHandler.getInstance().showOnly( false ) );
         }catch (Exception e){ e.printStackTrace(); }
     }
 

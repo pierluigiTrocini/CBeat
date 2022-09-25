@@ -134,7 +134,16 @@ public class DatabaseHandler{
 
     }
 
+    public ResultSet searchByIngredient( String name ) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return null;
 
+        PreparedStatement statement = connection.prepareStatement(Settings.searchByIngredient);
+        for( int i = 1; i <= 15; i++ )
+            statement.setString(i, "\"" + name + "\"");
+
+        return statement.executeQuery();
+    }
 }
 
 

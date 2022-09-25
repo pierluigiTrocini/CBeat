@@ -23,7 +23,11 @@ public class APIHandler {
     public APIHandler() {}
     public static APIHandler getInstance(){ return instance; }
 
-    public JsonObject searchFromText( String content ) throws IOException{
+    private FlowPane itemList;
+
+    public void setItemList(FlowPane itemList) { this.itemList = itemList; }
+
+    public JsonObject searchFromText(String content ) throws IOException{
         URLConnection request = ( new URL("https://www.thecocktaildb.com/api/json/v1/" + Settings.apikey + "/search.php?f=" + content)).openConnection();   // f -> first letter
         request.connect();
 
@@ -32,19 +36,22 @@ public class APIHandler {
         return  root;
     }
 
-    public void addCards(FlowPane flowPane, ResultSet set) throws SQLException, IOException {
-        flowPane.getChildren().clear();
+    public void addCards( ResultSet set) {
+        try {
+            this.itemList.getChildren().clear();
 
-        while ( set.next() ){
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
-            Parent pane = (Parent) fxmlLoader.load();
-            ItemCardController controller = fxmlLoader.getController();
-            controller.init( set.getString("strDrink").replace("\"", ""),
-                    set.getString("strDrinkThumb").replace("\"", "") );
+            while ( set.next() ){
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item-card.fxml"));
+                Parent pane = (Parent) fxmlLoader.load();
+                ItemCardController controller = fxmlLoader.getController();
+                controller.init( set.getString("strDrink").replace("\"", ""),
+                        set.getString("strDrinkThumb").replace("\"", "") );
 
-            flowPane.getChildren().add(pane);
+                this.itemList.getChildren().add(pane);
 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 }

@@ -63,4 +63,26 @@ public class Settings {
             limit 18;
             """;
 
+    public static final String searchByIngredient= """
+            select *
+            from Drink
+            where   strIngredient1 = ? or
+                    strIngredient2 = ? or
+                    strIngredient3 = ? or
+                    strIngredient4 = ? or
+                    strIngredient5 = ? or
+                    strIngredient6 = ? or
+                    strIngredient7 = ? or
+                    strIngredient8 = ? or
+                    strIngredient9 = ? or
+                    strIngredient10 = ? or
+                    strIngredient11 = ? or
+                    strIngredient12 = ? or
+                    strIngredient13 = ? or
+                    strIngredient14 = ? or
+                    strIngredient15 = ?
+            order by strDrinkThumb
+            limit 18;
+            """;
+
 }
