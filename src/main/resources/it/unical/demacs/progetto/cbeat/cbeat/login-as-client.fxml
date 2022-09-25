@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsClient">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsClient">
    <children>
       <Button fx:id="goBackBtn" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="indietro" />
       <Label fx:id="welcomeLabel" layoutX="159.0" layoutY="225.0" styleClass="login" text="Gentile cliente, inserisci il numero del tuo tavolo " />

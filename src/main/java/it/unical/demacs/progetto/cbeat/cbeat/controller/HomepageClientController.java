@@ -63,13 +63,12 @@ public class HomepageClientController implements Initializable {
         this.searchText.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if( oldValue != newValue && !oldValue.isEmpty() && !newValue.isEmpty()  ){
-                    try {
-                        APIHandler.getInstance().addCards( itemList, DatabaseHandler.getInstance().querySearch(searchText.getText()) );
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                try {
+                    if (newValue.isEmpty())
+                        APIHandler.getInstance().addCards(itemList, DatabaseHandler.getInstance().queryForCards());
+                    if (oldValue != newValue && !oldValue.isEmpty() && !newValue.isEmpty() && ( newValue.length() > oldValue.length() ) )
+                        APIHandler.getInstance().addCards(itemList, DatabaseHandler.getInstance().querySearch(searchText.getText()));
+                }catch ( Exception e ){ e.printStackTrace(); }
             }
         });
 

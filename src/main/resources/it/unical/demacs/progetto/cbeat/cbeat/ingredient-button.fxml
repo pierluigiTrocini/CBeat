@@ -3,4 +3,4 @@
 <?import javafx.scene.control.Button?>
 
 
-<Button fx:id="ingredientButton" mnemonicParsing="false" onMouseClicked="#searchByIngredient" styleClass="secondary-button" stylesheets="@css/style.css" text="Button" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.IngredientButton" />
+<Button fx:id="ingredientButton" mnemonicParsing="false" onMouseClicked="#searchByIngredient" styleClass="secondary-button" stylesheets="@css/style.css" text="Button" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.IngredientButton" />
