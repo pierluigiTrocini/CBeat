@@ -32,7 +32,7 @@ public class CartController implements Initializable {
 
     @FXML
     void exit(MouseEvent event) {
-        //SceneHandler.getInstance().hideCart();
+        SceneHandler.getInstance().hideCart();
     }
 
     @Override

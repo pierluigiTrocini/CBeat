@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -25,6 +26,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomepageClientController implements Initializable {
+
+    @FXML
+    private BorderPane borderPane;
+
     @FXML
     private FlowPane itemList;
 
@@ -52,14 +57,19 @@ public class HomepageClientController implements Initializable {
     @FXML
     private Button randomBtn;
 
-
+    public BorderPane getBorderPane() { return borderPane; }
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        this.scrollPane.setHbarPolicy( ScrollPane.ScrollBarPolicy.NEVER );
+
         SceneHandler.getInstance().setHomepageClientStackPane( this.stackPane );
         StyleHandler.getInstance().setHomepageClientStackPane( this.stackPane );
         APIHandler.getInstance().setItemList( this.itemList );
 
+
+        this.scrollPane.prefWidthProperty().bind( this.borderPane.widthProperty() );
+        this.scrollPane.prefHeightProperty().bind( this.borderPane.heightProperty() );
         this.itemList.prefWidthProperty().bind( this.scrollPane.widthProperty() );
         this.itemList.prefHeightProperty().bind( this.scrollPane.heightProperty() );
 
@@ -105,7 +115,9 @@ public class HomepageClientController implements Initializable {
 
     @FXML
     void showCart(MouseEvent event) {
-
+        try {
+            SceneHandler.getInstance().showCart();
+        }catch (Exception e) { e.printStackTrace(); }
     }
 
     @FXML

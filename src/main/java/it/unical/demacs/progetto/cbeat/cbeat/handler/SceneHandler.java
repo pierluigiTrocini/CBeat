@@ -1,7 +1,9 @@
 package it.unical.demacs.progetto.cbeat.cbeat.handler;
 
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
+import it.unical.demacs.progetto.cbeat.cbeat.controller.CartController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.DrinkInfoController;
+import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageClientController;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,19 +78,27 @@ public class SceneHandler {
 
     public void createClientHomepageScene( String table ){
         try {
+            FXMLLoader loader = new FXMLLoader( HelloApplication.class.getResource( "homepage-client.fxml" ) );
+            Parent parent = loader.load();
+            HomepageClientController controller = loader.getController();
+
             if (this.scene == null)
-                this.scene = new Scene(loadRootFromFXML("homepage-client.fxml"));
+                this.scene = new Scene(parent);
             else
-                this.scene.setRoot(loadRootFromFXML("homepage-client.fxml"));
+                this.scene.setRoot(parent);
+
+            controller.getBorderPane().prefHeightProperty().bind( this.scene.heightProperty() );
+            controller.getBorderPane().prefWidthProperty().bind( this.scene.widthProperty() );
 
             this.stage.setScene(scene);
             mainSettings( Settings.clientTitle + table , Settings.homepageInitialWidth, Settings.homepageInitialHeight, true );
+
+
 
         }catch (IOException exception){ exception.printStackTrace(); }
 
 
     }
-
 
     public void showMainLogin() throws IOException {
         VBox vBox = FXMLLoader.load(HelloApplication.class.getResource("login-main.fxml"));
@@ -120,11 +130,28 @@ public class SceneHandler {
         this.homepageClientStackPane.getChildren().add(pane);
     }
 
+    public void showCart() throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("cart-view.fxml"));
+        Parent pane = (Parent) loader.load();
+        CartController controller = loader.getController();
+
+        controller.getBorderPane().prefWidthProperty().bind( this.homepageClientStackPane.widthProperty() );
+        controller.getBorderPane().prefHeightProperty().bind( this.homepageClientStackPane.heightProperty() );
+
+        this.homepageClientStackPane.getChildren().add(pane);
+    }
+
     public void hideDrinkInfo() {
         this.homepageClientStackPane.getChildren().remove(
                 this.homepageClientStackPane.getChildren().size() -1
         );
         StyleHandler.getInstance().removeBlurEffect();
+    }
+
+    public void hideCart(){
+        this.homepageClientStackPane.getChildren().remove(
+                this.homepageClientStackPane.getChildren().size() -1
+        );
     }
 
 
