@@ -8,11 +8,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CartController implements Initializable {
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private javafx.scene.layout.VBox VBox;
 
     @FXML
     private BorderPane borderPane;
@@ -37,6 +44,13 @@ public class CartController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.VBox.prefWidthProperty().bind( this.scrollPane.widthProperty() );
+        this.VBox.prefHeightProperty().bind( this.scrollPane.heightProperty() );
+
+        this.VBox.setStyle("-fx-background-color: transparent");
+        this.scrollPane.setStyle( "-fx-background-color: transparent" );
+        this.scrollPane.setHbarPolicy( ScrollPane.ScrollBarPolicy.NEVER );
+
         this.exitButton.setGraphic(StyleHandler.getInstance().getIcon("mdi2c-close", 10));
     }
 }
