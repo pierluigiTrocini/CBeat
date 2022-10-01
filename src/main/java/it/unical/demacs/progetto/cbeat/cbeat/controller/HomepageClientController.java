@@ -1,10 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.APIHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

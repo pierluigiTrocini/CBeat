@@ -39,7 +39,8 @@ public class CartController implements Initializable {
 
     @FXML
     void purchase(MouseEvent event) {
-
+        CartHandler.getInstance().insertOrders();
+        SceneHandler.getInstance().hideCart();
     }
 
     @FXML

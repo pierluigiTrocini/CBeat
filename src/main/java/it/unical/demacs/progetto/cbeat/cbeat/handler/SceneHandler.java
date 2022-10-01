@@ -92,7 +92,7 @@ public class SceneHandler {
 
             this.stage.setScene(scene);
             mainSettings( Settings.clientTitle + table , Settings.homepageInitialWidth, Settings.homepageInitialHeight, true );
-
+            CartHandler.getInstance().setTable(Integer.parseInt(table));
 
 
         }catch (IOException exception){ exception.printStackTrace(); }

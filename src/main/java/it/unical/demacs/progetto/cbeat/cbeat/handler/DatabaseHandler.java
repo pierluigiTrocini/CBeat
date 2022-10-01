@@ -144,6 +144,18 @@ public class DatabaseHandler{
 
         return statement.executeQuery();
     }
+
+    public boolean insertOrders( String id, int amount, int table ) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return false;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.insertOrder);
+        statement.setString(1, id);
+        statement.setInt(2, amount);
+        statement.setInt(3, table);
+
+        return statement.execute();
+    }
 }
 
 

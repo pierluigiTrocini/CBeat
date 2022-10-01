@@ -42,13 +42,14 @@ public class ItemListElementController implements Initializable {
     private Button removeButton;
 
     public HBox getHBox() { return hBox; }
+
     private CartElement info;
 
     public void init( CartElement element ){
         this.info = element;
 
-        this.itemLabel.setText( this.info.name() );
-        this.itemImg.setImage( new Image( this.info.imageUrl() ) );
+        this.itemLabel.setText( this.info.name );
+        this.itemImg.setImage( new Image( this.info.imageUrl ) );
     }
 
     @Override
@@ -72,11 +73,13 @@ public class ItemListElementController implements Initializable {
     @FXML
     void decrease(MouseEvent event) {
         this.amountText.setText(String.valueOf(( Integer.parseInt(this.amountText.getText()) - 1 )));
+        CartHandler.getInstance().decreaseAmount( this.info );
     }
 
     @FXML
     void increase(MouseEvent event) {
         this.amountText.setText(String.valueOf((Integer.parseInt(this.amountText.getText()) + 1 )));
+        CartHandler.getInstance().increaseAmount( this.info );
     }
 
     @FXML

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CartHandler {
@@ -14,18 +15,40 @@ public class CartHandler {
     public static CartHandler getInstance() { return instance; }
     public CartHandler() {}
 
-    VBox cart;
+    private VBox cart;
     public void setCart(VBox cart) { this.cart = cart; }
 
+    private int table;
+    public void setTable(int table) { this.table = table; }
+
     private ArrayList<CartElement> list = new ArrayList<>();
+    public void clearList(){ this.list.clear(); }
+
+    public void insertOrders() {
+        if( !this.list.isEmpty() ){
+            for( CartElement element: this.list ){
+                try {
+                    System.out.println( DatabaseHandler.getInstance().insertOrders(element.id, element.amount, this.table) );
+                }catch (Exception e){ e.printStackTrace(); }
+            }
+        }
+    }
 
 
     public void addElement( String url, String name, String id ){
-        this.list.add( new CartElement( url, name, id ) );
+        this.list.add( new CartElement( url, name, id, 1 ) );
     }
     public void remove( CartElement element ){
         this.list.remove( element );
         this.refreshList();
+    }
+
+    public void increaseAmount( CartElement element ){
+        this.list.get( this.list.indexOf(element) ).amount += 1;
+    }
+
+    public void decreaseAmount( CartElement element ){
+        this.list.get( this.list.indexOf(element) ).amount -= 1;
     }
 
     public void refreshList(){
@@ -45,5 +68,11 @@ public class CartHandler {
                 }
             }
         }catch (Exception e){ e.printStackTrace(); }
+    }
+
+    public void DEBUGPRINT(){
+        for( CartElement element: this.list ){
+            System.out.println( element.id + "\t" + element.name + "\t" + element.amount );
+        }
     }
 }
