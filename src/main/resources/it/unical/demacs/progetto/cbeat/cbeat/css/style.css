@@ -22,9 +22,10 @@
 }
 
 .text-field{
-    -fx-background-color: base;
+    -fx-background-color: white;
 
     -fx-border-color: grey;
+
     -fx-border-radius: 25px;
     -fx-background-radius: 25px;
 }

@@ -1,8 +1,10 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.CartHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.model.CartElement;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,6 +48,10 @@ public class DrinkInfoController implements Initializable {
     @FXML
     private Button purchaseButton;
 
+    private String itemImageUrl;
+    private String itemLabel;
+    private String itemId;
+
     public BorderPane getBorderPane() { return borderPane; }
 
     @Override
@@ -60,9 +66,13 @@ public class DrinkInfoController implements Initializable {
     public void init( String drinkName ) throws SQLException, IOException {
         ResultSet set = DatabaseHandler.getInstance().queryInformations(drinkName);
         if( set != null ){
+            this.itemLabel = set.getString("strDrink").replace("\"", "");
+            this.itemImageUrl = set.getString("strDrinkThumb").replace("\"", "");
+            this.itemId = set.getString("idDrink").replace("\"", "");
 
-            this.drinkTitle.setText( set.getString("strDrink").replace("\"", "") );
-            this.drinkImage.setImage( new Image( set.getString("strDrinkThumb").replace("\"", "") ));
+
+            this.drinkTitle.setText( itemLabel );
+            this.drinkImage.setImage( new Image(itemImageUrl) );
 
             for( int i = 1; i <= Settings.ingredientSize; i++){
 
@@ -85,7 +95,7 @@ public class DrinkInfoController implements Initializable {
 
     @FXML
     void addToCart(MouseEvent event) {
-
+        CartHandler.getInstance().addElement( this.itemImageUrl, this.itemLabel, this.itemId );
     }
 
     @FXML
