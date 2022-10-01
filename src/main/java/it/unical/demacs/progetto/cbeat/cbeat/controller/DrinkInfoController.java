@@ -96,6 +96,7 @@ public class DrinkInfoController implements Initializable {
     @FXML
     void addToCart(MouseEvent event) {
         CartHandler.getInstance().addElement( this.itemImageUrl, this.itemLabel, this.itemId );
+        SceneHandler.getInstance().hideDrinkInfo();
     }
 
     @FXML

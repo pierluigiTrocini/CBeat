@@ -14,25 +14,34 @@ public class CartHandler {
     public static CartHandler getInstance() { return instance; }
     public CartHandler() {}
 
+    VBox cart;
+    public void setCart(VBox cart) { this.cart = cart; }
+
     private ArrayList<CartElement> list = new ArrayList<>();
+
 
     public void addElement( String url, String name, String id ){
         this.list.add( new CartElement( url, name, id ) );
     }
+    public void remove( CartElement element ){
+        this.list.remove( element );
+        this.refreshList();
+    }
 
-    public void refreshList(VBox vBox){
+    public void refreshList(){
         try {
+            this.cart.getChildren().clear();
             if( !list.isEmpty() ) {
                 for (CartElement element : list) {
                     FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("item-list-element.fxml"));
                     Parent parent = loader.load();
                     ItemListElementController controller = loader.getController();
 
-                    controller.init(element.imageUrl(), element.name());
-                    controller.getHBox().prefWidthProperty().bind( vBox.widthProperty() );
+                    controller.init( element );
+                    controller.getHBox().prefWidthProperty().bind( this.cart.widthProperty() );
 
 
-                    vBox.getChildren().add(parent);
+                    this.cart.getChildren().add(parent);
                 }
             }
         }catch (Exception e){ e.printStackTrace(); }

@@ -1,6 +1,8 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
+import it.unical.demacs.progetto.cbeat.cbeat.handler.CartHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.model.CartElement;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -40,10 +42,13 @@ public class ItemListElementController implements Initializable {
     private Button removeButton;
 
     public HBox getHBox() { return hBox; }
+    private CartElement info;
 
-    public void init(String url, String name ){
-        this.itemLabel.setText( name );
-        this.itemImg.setImage( new Image(url));
+    public void init( CartElement element ){
+        this.info = element;
+
+        this.itemLabel.setText( this.info.name() );
+        this.itemImg.setImage( new Image( this.info.imageUrl() ) );
     }
 
     @Override
@@ -72,5 +77,10 @@ public class ItemListElementController implements Initializable {
     @FXML
     void increase(MouseEvent event) {
         this.amountText.setText(String.valueOf((Integer.parseInt(this.amountText.getText()) + 1 )));
+    }
+
+    @FXML
+    void remove(MouseEvent event) {
+        CartHandler.getInstance().remove( this.info );
     }
 }

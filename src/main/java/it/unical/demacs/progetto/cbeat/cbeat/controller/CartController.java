@@ -58,7 +58,8 @@ public class CartController implements Initializable {
 
         this.exitButton.setGraphic(StyleHandler.getInstance().getIcon("mdi2c-close", 10));
 
-        CartHandler.getInstance().refreshList( this.VBox );
+        CartHandler.getInstance().setCart( this.VBox );
+        CartHandler.getInstance().refreshList();
 
     }
 }

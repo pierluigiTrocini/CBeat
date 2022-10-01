@@ -30,18 +30,38 @@ public class LoginAsClient implements Initializable {
     private Label welcomeLabel;
 
     @FXML
+    private Label errorMessage;
+
+    @FXML
     void backToLogin(MouseEvent event) throws IOException {
         SceneHandler.getInstance().showMainLogin();
     }
 
     @FXML
     void loginAsClient(MouseEvent event) {
-        SceneHandler.getInstance().createClientHomepageScene( this.tableTextArea.getText() );
+        if( this.tableTextArea.getText().isEmpty() ){
+            this.errorMessage.setVisible(true);
+            this.tableTextArea.setStyle(""" 
+                -fx-border-color: red;
+                -fx-background-color: white;""");
+        }
+        else {
+            SceneHandler.getInstance().createClientHomepageScene(this.tableTextArea.getText());
+        }
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.errorMessage.setVisible(false);
+
+        this.tableTextArea.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if( !oldValue.equals(newValue) ){ errorMessage.setVisible(false); }
+            }
+        });
+
         this.tableTextArea.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {

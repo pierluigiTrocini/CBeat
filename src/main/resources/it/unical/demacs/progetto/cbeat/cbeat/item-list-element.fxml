@@ -34,7 +34,7 @@
          </font>
       </TextField>
       <Button fx:id="amountSub" mnemonicParsing="false" onMouseClicked="#decrease" text="-" />
-      <Button fx:id="removeButton" mnemonicParsing="false" styleClass="secondary-button" text="Rimuovi">
+      <Button fx:id="removeButton" mnemonicParsing="false" onMouseClicked="#remove" styleClass="secondary-button" text="Rimuovi">
          <HBox.margin>
             <Insets left="70.0" />
          </HBox.margin>
