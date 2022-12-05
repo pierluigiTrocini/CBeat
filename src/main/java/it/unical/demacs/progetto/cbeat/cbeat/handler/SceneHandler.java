@@ -4,6 +4,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.CartController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.DrinkInfoController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageClientController;
+import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -152,6 +153,29 @@ public class SceneHandler {
         this.homepageClientStackPane.getChildren().remove(
                 this.homepageClientStackPane.getChildren().size() -1
         );
+    }
+
+    //Sezione staff
+    public void createStaffHomepageScene( String user ){
+        try {
+            FXMLLoader loader = new FXMLLoader( HelloApplication.class.getResource( "homepage-staff.fxml" ) );
+            Parent parent = loader.load();
+            HomepageStaffController controller = loader.getController();
+
+            if (this.scene == null)
+                this.scene = new Scene(parent);
+            else
+                this.scene.setRoot(parent);
+
+            this.stage.setScene(scene);
+            mainSettings( Settings.staffTitle + user , Settings.homepageInitialWidth, Settings.homepageInitialHeight, true );
+            controller.getWelcomeLabel().setText(Settings.welcomeStaff + " " + user);
+
+
+
+        }catch (IOException exception){ exception.printStackTrace(); }
+
+
     }
 
 

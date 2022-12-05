@@ -116,8 +116,19 @@
                         linear-gradient( to bottom, white, transparent );
 
 }
-!------------------------------------------!
 
+/* Sezione staff homepage */
+
+.staff-top-lane{
+    -fx-background-color: primary;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.staff-middle-lane{
+    -fx-background-color: tertiary;
+}
 
 .tab {
     -fx-focus-color: transparent;

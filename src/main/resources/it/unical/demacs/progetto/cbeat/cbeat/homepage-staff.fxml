@@ -6,44 +6,44 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="client-homepage" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </ImageView>
-            <Label fx:id="WelcomeLabel" prefHeight="5.0" prefWidth="152.0" text="Label" />
-            <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#DoLogout" text="Button">
-               <HBox.margin>
-                  <Insets left="750.0" right="30.0" />
-               </HBox.margin>
+      <BorderPane prefHeight="75.0" prefWidth="1280.0" styleClass="staff-top-lane">
+         <left>
+            <Label fx:id="welcomeLabel" prefHeight="25.0" prefWidth="508.0" styleClass="staff-top-lane" text="Label" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="40.0" right="40.0" />
+               </BorderPane.margin>
+            </Label>
+         </left>
+         <right>
+            <Button fx:id="LogoutButton" mnemonicParsing="false" onMouseClicked="#doLogout" styleClass="secondary-button" text="Logout" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="40.0" right="40.0" />
+               </BorderPane.margin>
             </Button>
-         </children>
-      </HBox>
+         </right>
+      </BorderPane>
    </top>
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" styleClass="tab-header-area" stylesheets="@css/style.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="200.0" prefWidth="200.0" rotateGraphic="true" styleClass="staff-middle-lane" stylesheets="@css/style.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
           <Tab text="Ordini da processare">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <content>
-                              <VBox fx:id="OrderList" prefHeight="200.0" prefWidth="100.0" />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
+                  <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+                     <content>
+                        <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <VBox fx:id="orderList" prefHeight="200.0" prefWidth="100.0" />
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
             </content>
           </Tab>
           <Tab text="Analisi grafica">

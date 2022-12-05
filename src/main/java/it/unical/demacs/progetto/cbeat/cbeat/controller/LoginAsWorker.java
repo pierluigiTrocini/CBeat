@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class LoginAsWorker implements Initializable {
 
     @FXML
-    private TextField emailText;
+    private TextField usernameText;
 
     @FXML
     private Button goBackBtn;
@@ -39,13 +39,14 @@ public class LoginAsWorker implements Initializable {
 
     @FXML
     void workerLogin(MouseEvent event) {
-        System.out.println("Username " + emailText.getText() + "\nPassword " + passwordText.getText());
+        System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
-        if(AuthenticationHandler.getInstance().accountAuth(emailText.getText(), passwordText.getText())){
+        if(AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())){
             //TODO - Accesso homepage
+            SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());
         }
         else{
-            StyleHandler.getInstance().highlightAsError(this.emailText);
+            StyleHandler.getInstance().highlightAsError(this.usernameText);
             StyleHandler.getInstance().highlightAsError(this.passwordText);
             this.errorMessage.setText("  Username o password errati  ");
         }
@@ -54,7 +55,7 @@ public class LoginAsWorker implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        emailText.setPromptText("email");
+        usernameText.setPromptText("username");
         passwordText.setPromptText("password");
 
         this.errorMessage.setStyle("""

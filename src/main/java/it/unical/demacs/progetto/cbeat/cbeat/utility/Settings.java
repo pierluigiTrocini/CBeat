@@ -22,6 +22,8 @@ public class Settings {
 
     /* Homepage */
     public static final String clientTitle = mainTitle + " - Tavolo ";
+    public static final String staffTitle = mainTitle + "  Area Staff - ";
+    public static final String welcomeStaff = "Benvenuto, ";
     public static final Double homepageInitialWidth = 1280.0;
     public static final Double homepageInitialHeight = 720.0;
 

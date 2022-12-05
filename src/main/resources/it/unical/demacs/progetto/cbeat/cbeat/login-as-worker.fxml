@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsWorker">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsWorker">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css">
          <children>
@@ -20,12 +20,12 @@
                   <Label fx:id="errorMessage" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Email">
+                        <Label text="Username">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="emailText">
+                        <TextField fx:id="usernameText">
                            <HBox.margin>
                               <Insets bottom="10.0" left="40.0" right="20.0" top="10.0" />
                            </HBox.margin>

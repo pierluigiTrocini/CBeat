@@ -1,29 +1,48 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
-import javafx.event.ActionEvent;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class HomepageStaffController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HomepageStaffController implements Initializable {
 
     @FXML
     private Button LogoutButton;
 
     @FXML
-    private VBox OrderList;
-
-    @FXML
-    private Label WelcomeLabel;
-
-    @FXML
     private BorderPane borderPane;
 
     @FXML
-    void DoLogout(ActionEvent event) {
+    private VBox orderList;
 
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private StackPane stackPane;
+
+    @FXML
+    private Label welcomeLabel;
+
+    public Label getWelcomeLabel() { return welcomeLabel; }
+
+    @FXML
+    void doLogout(MouseEvent event) {
+        SceneHandler.getInstance().createLoginScene();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }
