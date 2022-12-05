@@ -36,7 +36,7 @@ public class APIHandler {
         return  root;
     }
 
-    public void addCards( ResultSet set) {
+    public void addCards( ResultSet set ) {
         try {
             this.itemList.getChildren().clear();
 

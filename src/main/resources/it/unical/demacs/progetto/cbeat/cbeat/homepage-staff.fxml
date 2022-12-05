@@ -35,15 +35,15 @@
         <tabs>
           <Tab text="Ordini da processare">
             <content>
-                  <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
-                     <content>
-                        <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0">
-                           <children>
+                  <StackPane fx:id="orderStackPane" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="orderScrollPane">
+                           <content>
                               <VBox fx:id="orderList" prefHeight="200.0" prefWidth="100.0" />
-                           </children>
-                        </StackPane>
-                     </content>
-                  </ScrollPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </StackPane>
             </content>
           </Tab>
           <Tab text="Analisi grafica">

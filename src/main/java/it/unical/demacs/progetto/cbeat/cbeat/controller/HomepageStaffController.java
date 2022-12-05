@@ -26,10 +26,10 @@ public class HomepageStaffController implements Initializable {
     private VBox orderList;
 
     @FXML
-    private ScrollPane scrollPane;
+    private ScrollPane orderScrollPane;
 
     @FXML
-    private StackPane stackPane;
+    private StackPane orderStackPane;
 
     @FXML
     private Label welcomeLabel;
@@ -43,6 +43,11 @@ public class HomepageStaffController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.orderScrollPane.setHbarPolicy( ScrollPane.ScrollBarPolicy.NEVER );
 
+        this.orderScrollPane.prefWidthProperty().bind( this.orderStackPane.widthProperty() );
+        this.orderScrollPane.prefHeightProperty().bind( this.orderStackPane.heightProperty() );
+        this.orderList.prefWidthProperty().bind( this.orderScrollPane.widthProperty() );
+        this.orderList.prefHeightProperty().bind( this.orderScrollPane.heightProperty() );
     }
 }
