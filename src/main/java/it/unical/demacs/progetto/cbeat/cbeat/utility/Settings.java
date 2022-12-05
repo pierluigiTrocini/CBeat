@@ -91,5 +91,11 @@ public class Settings {
             order by strDrinkThumb
             limit 18;
             """;
+    public static final String queryOrders= """
+            select Drink.strDrinkThumb, Drink.strDrink, Orders.amount, Orders."table"
+            from Drink, Orders
+            where Drink.idDrink = Orders.drinkId;
+            """;
+
 
 }

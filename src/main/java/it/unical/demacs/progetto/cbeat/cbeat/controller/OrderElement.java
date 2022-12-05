@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -34,6 +35,8 @@ public class OrderElement implements Initializable {
     @FXML
     private Button processBtn;
 
+    public HBox gethBox() { return hBox; }
+
     @FXML
     void orderProcess(MouseEvent event) {
 
@@ -41,6 +44,13 @@ public class OrderElement implements Initializable {
     @FXML
     void showInfos(MouseEvent event) {
 
+    }
+
+    public void init( String imgUrl, String drinkName, int drinkAmount, int drinkTable ){
+        this.orderImg.setImage( new Image(imgUrl) );
+        this.orderLabel.setText( drinkName );
+        this.orderAmount.setText( Integer.toString(drinkAmount) );
+        this.orderTable.setText( Integer.toString(drinkTable) );
     }
 
     @Override

@@ -1,5 +1,6 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
+import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,5 +50,8 @@ public class HomepageStaffController implements Initializable {
         this.orderScrollPane.prefHeightProperty().bind( this.orderStackPane.heightProperty() );
         this.orderList.prefWidthProperty().bind( this.orderScrollPane.widthProperty() );
         this.orderList.prefHeightProperty().bind( this.orderScrollPane.heightProperty() );
+
+        OrderHandler.getInstance().setOrderList( this.orderList );
+        OrderHandler.getInstance().refreshOrderList();
     }
 }

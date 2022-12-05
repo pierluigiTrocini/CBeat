@@ -28,7 +28,7 @@ public class CartHandler {
         if( !this.list.isEmpty() ){
             for( CartElement element: this.list ){
                 try {
-                    System.out.println( DatabaseHandler.getInstance().insertOrders(element.id, element.amount, this.table) );
+                    System.out.println( DatabaseHandler.getInstance().insertOrders('\"' + element.id + '\"', element.amount, this.table) );
                 }catch (Exception e){ e.printStackTrace(); }
             }
         }
