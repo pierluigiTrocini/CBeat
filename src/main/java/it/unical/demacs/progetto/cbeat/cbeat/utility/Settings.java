@@ -39,7 +39,7 @@ public class Settings {
     """;
 
     public static final String insertOrder = """
-            INSERT INTO Orders VALUES ( ?, ?, ? )
+            INSERT INTO Orders VALUES ( null, ?, ?, ? )
             """;
 
     public static final String cardQuery= """
