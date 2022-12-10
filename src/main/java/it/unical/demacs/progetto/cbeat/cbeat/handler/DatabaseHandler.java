@@ -1,6 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.handler;
 
 import com.google.gson.*;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import org.sqlite.SQLiteException;
 
@@ -163,6 +164,52 @@ public class DatabaseHandler{
         statement.setInt(3, table);
 
         return statement.execute();
+    }
+
+    public boolean CheckProcessedOrderExists(String username) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return false;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.procOrderExists);
+        statement.setString(1,username);
+
+        ResultSet set=statement.executeQuery();
+        if (set.next())
+            return true;
+
+        return false;
+
+    }
+    public boolean SaveOrUpdateProcessedOrder(String username,Integer amount) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return false;
+        if(!CheckProcessedOrderExists(ActiveEmployee.getInstance().getUsername())) {
+            PreparedStatement statement = connection.prepareStatement(Settings.SaveProcessedOrder);
+            statement.setString(1,username);
+            statement.setInt(2,amount);
+           return statement.execute();
+
+        }
+        else{
+            PreparedStatement statement = connection.prepareStatement(Settings.UpdateProcessedOrder);
+            statement.setInt(1,amount);
+            statement.setString(2,username);
+            return statement.execute();
+
+
+        }
+    }
+
+    public boolean DeleteFromOrders(Integer orderId) throws SQLException {
+        if( connection == null || connection.isClosed() )
+            return false;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.DeleteFromOrders);
+        statement.setInt(1,orderId);
+        return statement.execute();
+
+
+
     }
 }
 

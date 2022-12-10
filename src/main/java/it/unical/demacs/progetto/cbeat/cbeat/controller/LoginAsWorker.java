@@ -3,6 +3,7 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.AuthenticationHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -43,6 +44,7 @@ public class LoginAsWorker implements Initializable {
 
         if(AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())){
             //TODO - Accesso homepage
+            ActiveEmployee.getInstance().setUsername(usernameText.getText());
             SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());
         }
         else{

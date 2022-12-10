@@ -28,10 +28,11 @@ public class OrderHandler {
                 OrderElement controller = loader.getController();
 
                 controller.init(
-                        set.getString(1).replaceAll("\"",""),
+                        set.getInt(1),
                         set.getString(2).replaceAll("\"",""),
-                        set.getInt(3),
-                        set.getInt(4)
+                        set.getString(3).replaceAll("\"",""),
+                        set.getInt(4),
+                        set.getInt(5)
                 );
 
                 controller.gethBox().prefWidthProperty().bind( this.orderList.widthProperty() );

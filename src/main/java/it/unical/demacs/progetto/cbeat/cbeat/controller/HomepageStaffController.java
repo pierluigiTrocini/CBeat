@@ -2,6 +2,7 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -39,6 +40,7 @@ public class HomepageStaffController implements Initializable {
 
     @FXML
     void doLogout(MouseEvent event) {
+        ActiveEmployee.getInstance().setUsername(null);
         SceneHandler.getInstance().createLoginScene();
     }
 

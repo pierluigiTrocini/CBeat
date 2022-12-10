@@ -92,9 +92,27 @@ public class Settings {
             limit 18;
             """;
     public static final String queryOrders= """
-            select Drink.strDrinkThumb, Drink.strDrink, Orders.amount, Orders."table"
+            select Orders.orderId,Drink.strDrinkThumb, Drink.strDrink, Orders.amount, Orders."table"
             from Drink, Orders
             where Drink.idDrink = Orders.drinkId;
+            """;
+
+
+    public static final String procOrderExists= """
+            select * from ProcessedOrders where username=? and date=date();
+            
+            """;
+    public static final String SaveProcessedOrder= """
+            INSERT INTO ProcessedOrders Values (?,date(),?);
+            
+            
+             """;
+    public static final String UpdateProcessedOrder= """
+            update ProcessedOrders set amount=amount+? where username=? and date=date();
+            
+            """;
+    public static final String DeleteFromOrders= """
+            DELETE FROM ORDERS WHERE orderId=?;
             """;
 
 

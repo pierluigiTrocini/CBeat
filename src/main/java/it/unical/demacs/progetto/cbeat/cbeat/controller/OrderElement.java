@@ -1,5 +1,8 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
+import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -10,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class OrderElement implements Initializable {
@@ -37,8 +41,17 @@ public class OrderElement implements Initializable {
 
     public HBox gethBox() { return hBox; }
 
+    private Integer id;
     @FXML
     void orderProcess(MouseEvent event) {
+        try {
+            DatabaseHandler.getInstance().DeleteFromOrders(id);
+
+            DatabaseHandler.getInstance().SaveOrUpdateProcessedOrder(ActiveEmployee.getInstance().getUsername(), Integer.parseInt(orderAmount.getText()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        OrderHandler.getInstance().refreshOrderList();
 
     }
     @FXML
@@ -46,7 +59,8 @@ public class OrderElement implements Initializable {
 
     }
 
-    public void init( String imgUrl, String drinkName, int drinkAmount, int drinkTable ){
+    public void init( Integer id,String imgUrl, String drinkName, int drinkAmount, int drinkTable ){
+        this.id=id;
         this.orderImg.setImage( new Image(imgUrl) );
         this.orderLabel.setText( drinkName );
         this.orderAmount.setText( Integer.toString(drinkAmount) );
