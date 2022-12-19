@@ -1,23 +1,15 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
-import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import org.kordamp.ikonli.javafx.FontIcon;
-
-
 import java.net.URL;
 
 import java.util.ResourceBundle;

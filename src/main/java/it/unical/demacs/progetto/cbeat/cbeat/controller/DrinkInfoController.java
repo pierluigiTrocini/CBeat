@@ -4,7 +4,6 @@ import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.CartHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.model.CartElement;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

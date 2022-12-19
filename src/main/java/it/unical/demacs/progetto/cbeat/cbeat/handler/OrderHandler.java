@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class OrderHandler {
     public static OrderHandler instance = new OrderHandler();

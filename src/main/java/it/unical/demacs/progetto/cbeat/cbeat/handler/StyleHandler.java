@@ -2,9 +2,6 @@ package it.unical.demacs.progetto.cbeat.cbeat.handler;
 
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.StackPane;
 import org.kordamp.ikonli.javafx.FontIcon;
 

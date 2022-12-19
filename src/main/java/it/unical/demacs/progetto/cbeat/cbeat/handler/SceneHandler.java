@@ -6,7 +6,6 @@ import it.unical.demacs.progetto.cbeat.cbeat.controller.DrinkInfoController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageClientController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

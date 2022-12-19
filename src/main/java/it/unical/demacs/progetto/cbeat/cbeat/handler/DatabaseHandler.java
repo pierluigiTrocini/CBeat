@@ -3,15 +3,9 @@ package it.unical.demacs.progetto.cbeat.cbeat.handler;
 import com.google.gson.*;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
-import org.sqlite.SQLiteException;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.sql.*;
-import java.util.*;
 
 public class DatabaseHandler{
     private static DatabaseHandler instance = new DatabaseHandler();
@@ -36,6 +30,7 @@ public class DatabaseHandler{
         }
     }
 
+    @Deprecated
     public void updateLocalDatabase() throws IOException, SQLException {
 
         for( char alphabet = 'a';  alphabet <= 'z'; alphabet++ ) {

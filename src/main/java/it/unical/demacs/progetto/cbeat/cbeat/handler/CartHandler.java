@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CartHandler {
