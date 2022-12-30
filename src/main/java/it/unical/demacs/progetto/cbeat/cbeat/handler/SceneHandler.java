@@ -5,6 +5,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.controller.CartController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.DrinkInfoController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageClientController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController;
+import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +31,10 @@ public class SceneHandler {
     private BorderPane loginBorderPane;
     private StackPane homepageClientStackPane;
 
-    public void init( Stage stage ) throws IOException {
+    public void init( Stage stage ) throws IOException, SQLException {
+
+
+
         this.stage = stage;
 
         createLoginScene();

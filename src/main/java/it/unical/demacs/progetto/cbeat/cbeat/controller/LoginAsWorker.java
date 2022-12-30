@@ -3,6 +3,7 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.AuthenticationHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,19 +41,28 @@ public class LoginAsWorker implements Initializable {
 
     @FXML
     void workerLogin(MouseEvent event) {
-        System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
+        if(!usernameText.getText().isEmpty() &&usernameText!=null && !passwordText.getText().isEmpty()&&passwordText!=null) {
+            System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
-        if(AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())){
-            //TODO - Accesso homepage
-            ActiveEmployee.getInstance().setUsername(usernameText.getText());
-            SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());
+            if (AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())) {
+                //TODO - Accesso homepage
+                ActiveEmployee.getInstance().setUsername(usernameText.getText());
+
+                SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());
+            } else {
+                StyleHandler.getInstance().highlightAsError(this.usernameText);
+                StyleHandler.getInstance().highlightAsError(this.passwordText);
+                this.errorMessage.setText("  Username o password errati  ");
+            }
+
         }
         else{
+
             StyleHandler.getInstance().highlightAsError(this.usernameText);
             StyleHandler.getInstance().highlightAsError(this.passwordText);
-            this.errorMessage.setText("  Username o password errati  ");
-        }
+            this.errorMessage.setText(" Username e password sono campi obbligatori  ");
 
+        }
     }
 
     @Override

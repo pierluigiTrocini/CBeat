@@ -11,6 +11,7 @@ module it.unical.demacs.progetto.cbeat.cbeat {
 
 
     requires java.net.http;
+    requires jbcrypt;
 
 
     opens it.unical.demacs.progetto.cbeat.cbeat to javafx.fxml;

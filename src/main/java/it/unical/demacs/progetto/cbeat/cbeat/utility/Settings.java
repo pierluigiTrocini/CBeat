@@ -116,4 +116,15 @@ public class Settings {
             """;
 
 
+    public static final String SearchCorrectUsername= """
+            
+            select *  from Employee where username=?;
+            
+           """;
+
+    public static final String InsertEmployee= """
+            
+            INSERT INTO Employee Values (?,?);
+            """;
+
 }

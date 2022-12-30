@@ -1,8 +1,11 @@
 package it.unical.demacs.progetto.cbeat.cbeat.handler;
 
 import com.google.gson.*;
+import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
+import it.unical.demacs.progetto.cbeat.cbeat.utility.PasswordEncrypter;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.*;
@@ -206,6 +209,51 @@ public class DatabaseHandler{
 
 
     }
+
+
+    public Boolean CorrectUserPass(String username,String password){
+        try{
+            if( connection == null || connection.isClosed() )
+                return false;
+
+                PreparedStatement stmt=connection.prepareStatement(Settings.SearchCorrectUsername);
+                stmt.setString(1,username);
+                ResultSet rs=stmt.executeQuery();
+
+
+                if(rs.next()){
+                    String encryptedPassword=rs.getString("password");
+                    if(BCrypt.checkpw(password,encryptedPassword)){
+                        return true;
+                    }
+
+
+                }
+                stmt.close();
+                rs.close();
+
+
+            }
+        catch (SQLException e){}
+
+        return false;
+    }
+
+    public boolean insertEmployee(Employee employee) throws SQLException{
+
+        if( connection == null || connection.isClosed() )
+            return false;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.InsertEmployee);
+        statement.setString(1, employee.username());
+        String encryptedpassword= PasswordEncrypter.getInstance().EncryptPassword(employee.password());
+        statement.setString(2, encryptedpassword);
+
+        return statement.execute();
+
+
+    }
+
 }
 
 

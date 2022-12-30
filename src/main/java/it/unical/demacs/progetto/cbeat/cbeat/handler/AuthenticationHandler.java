@@ -6,8 +6,16 @@ public class AuthenticationHandler {
     public AuthenticationHandler(){}
     public static AuthenticationHandler getInstance() { return instance; }
 
-    public boolean accountAuth( String email, String password ){
-        return true;
+    public boolean accountAuth( String username, String password ){
+
+       return  CheckUsernamePasswordCombo(username,password);
+
+    }
+
+    public Boolean CheckUsernamePasswordCombo(String username,String password){
+        return DatabaseHandler.getInstance().CorrectUserPass(username,password);
+
+
     }
 
 
