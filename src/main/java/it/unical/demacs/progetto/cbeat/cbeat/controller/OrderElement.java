@@ -16,6 +16,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import animatefx.animation.FadeOutLeft;
+
 public class OrderElement implements Initializable {
 
     @FXML
@@ -45,15 +47,19 @@ public class OrderElement implements Initializable {
     private Integer id;
     @FXML
     void orderProcess(MouseEvent event) {
-        try {
-            DatabaseHandler.getInstance().DeleteFromOrders(id);
-
-            DatabaseHandler.getInstance().SaveOrUpdateProcessedOrder(ActiveEmployee.getInstance().getUsername(), Integer.parseInt(orderAmount.getText()));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        OrderHandler.getInstance().refreshOrderList();
-
+        FadeOutLeft fLeft = new FadeOutLeft(this.hBox);
+        fLeft.setSpeed(1.0);
+        fLeft.setOnFinished(e ->{
+            try {
+                DatabaseHandler.getInstance().DeleteFromOrders(id);
+    
+                DatabaseHandler.getInstance().SaveOrUpdateProcessedOrder(ActiveEmployee.getInstance().getUsername(), Integer.parseInt(orderAmount.getText()));
+            } catch (SQLException exc) {
+                exc.printStackTrace();
+            }
+            OrderHandler.getInstance().refreshOrderList();
+        });
+        fLeft.play();
     }
     @FXML
     void showInfos(MouseEvent event) {
