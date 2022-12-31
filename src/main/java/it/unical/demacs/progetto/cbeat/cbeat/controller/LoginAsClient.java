@@ -9,6 +9,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -31,13 +33,27 @@ public class LoginAsClient implements Initializable {
     @FXML
     private Label errorMessage;
 
+    
+    
     @FXML
     void backToLogin(MouseEvent event) throws IOException {
         SceneHandler.getInstance().showMainLogin();
     }
+    
+    @FXML
+    void loginAsClientK(KeyEvent event) {
+        if( event.getCode() == KeyCode.ENTER ){
+            login();
+        }
+    }
+
 
     @FXML
     void loginAsClient(MouseEvent event) {
+        login();
+    }
+
+    private void login(){
         if( this.tableTextArea.getText().isEmpty() ){
             this.errorMessage.setVisible(true);
             this.tableTextArea.setStyle(""" 

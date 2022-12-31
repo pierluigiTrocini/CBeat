@@ -50,6 +50,8 @@ public class HomepageClientController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        this.searchButton.setPrefWidth(75);
+
         this.scrollPane.setHbarPolicy( ScrollPane.ScrollBarPolicy.NEVER );
 
         SceneHandler.getInstance().setHomepageClientStackPane( this.stackPane );

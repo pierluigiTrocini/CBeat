@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -40,7 +42,18 @@ public class LoginAsWorker implements Initializable {
     }
 
     @FXML
+    void workerLoginK(KeyEvent event) {
+        if( event.getCode() == KeyCode.ENTER ){
+            login();
+        }
+    }
+
+    @FXML
     void workerLogin(MouseEvent event) {
+        login();
+    }
+
+    private void login(){
         if(!usernameText.getText().isEmpty() &&usernameText!=null && !passwordText.getText().isEmpty()&&passwordText!=null) {
             System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
