@@ -10,6 +10,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -18,6 +19,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
+import animatefx.animation.FadeOut;
 
 public class SceneHandler {
     /* Singleton */
@@ -145,17 +148,22 @@ public class SceneHandler {
         this.homepageClientStackPane.getChildren().add(pane);
     }
 
-    public void hideDrinkInfo() {
-        this.homepageClientStackPane.getChildren().remove(
-                this.homepageClientStackPane.getChildren().size() -1
+    public void hide(){
+        FadeOut fadeOut = new FadeOut(
+            this.homepageClientStackPane.getChildren().get(
+                this.homepageClientStackPane.getChildren().size() - 1
+            )
         );
-        StyleHandler.getInstance().removeBlurEffect();
-    }
 
-    public void hideCart(){
-        this.homepageClientStackPane.getChildren().remove(
-                this.homepageClientStackPane.getChildren().size() -1
+        fadeOut.setOnFinished(e -> {
+                this.homepageClientStackPane.getChildren().remove(
+                    this.homepageClientStackPane.getChildren().size() - 1
+                );
+                StyleHandler.getInstance().removeBlurEffect();
+            }
         );
+
+        fadeOut.setSpeed(3.0).play();
     }
 
     //Sezione staff
@@ -177,8 +185,6 @@ public class SceneHandler {
 
 
         }catch (IOException exception){ exception.printStackTrace(); }
-
-
     }
 
 

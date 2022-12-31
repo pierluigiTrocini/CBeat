@@ -18,6 +18,8 @@ import javafx.scene.layout.HBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import animatefx.animation.FadeOutLeft;
+
 public class ItemListElementController implements Initializable {
     @FXML
     private HBox hBox;
@@ -83,6 +85,12 @@ public class ItemListElementController implements Initializable {
 
     @FXML
     void remove(MouseEvent event) {
-        CartHandler.getInstance().remove( this.info );
+        FadeOutLeft fLeft = new FadeOutLeft(this.hBox);
+        fLeft.setSpeed(1.0);
+        fLeft.setOnFinished(e ->{
+            CartHandler.getInstance().remove(this.info);
+        });
+        // CartHandler.getInstance().remove( this.info );
+        fLeft.play();
     }
 }

@@ -24,6 +24,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeOut;
+
 public class DrinkInfoController implements Initializable {
 
     @FXML
@@ -60,6 +63,8 @@ public class DrinkInfoController implements Initializable {
 
         this.ingredientList.prefWidthProperty().bind( this.infoVBox.prefWidthProperty() );
         this.ingredientList.prefHeightProperty().bind( this.infoVBox.prefHeightProperty() );
+
+        new FadeIn(this.borderPane).play();
     }
 
     public void init( String drinkName ) throws SQLException, IOException {
@@ -95,11 +100,11 @@ public class DrinkInfoController implements Initializable {
     @FXML
     void addToCart(MouseEvent event) {
         CartHandler.getInstance().addElement( this.itemImageUrl, this.itemLabel, this.itemId );
-        SceneHandler.getInstance().hideDrinkInfo();
+        SceneHandler.getInstance().hide();
     }
 
     @FXML
     void goBack(MouseEvent event) {
-        SceneHandler.getInstance().hideDrinkInfo();
+        SceneHandler.getInstance().hide();
     }
 }

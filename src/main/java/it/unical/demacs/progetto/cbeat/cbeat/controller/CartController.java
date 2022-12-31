@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import animatefx.animation.FadeIn;
+
 public class CartController implements Initializable {
 
     @FXML
@@ -36,12 +38,12 @@ public class CartController implements Initializable {
     @FXML
     void purchase(MouseEvent event) {
         CartHandler.getInstance().insertOrders();
-        SceneHandler.getInstance().hideCart();
+        SceneHandler.getInstance().hide();
     }
 
     @FXML
     void exit(MouseEvent event) {
-        SceneHandler.getInstance().hideCart();
+        SceneHandler.getInstance().hide();
     }
 
     @Override
@@ -57,6 +59,8 @@ public class CartController implements Initializable {
 
         CartHandler.getInstance().setCart( this.VBox );
         CartHandler.getInstance().refreshList();
+
+        new FadeIn(this.borderPane).setSpeed(3.0).play();
 
     }
 }

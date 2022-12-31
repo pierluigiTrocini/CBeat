@@ -16,7 +16,7 @@ public class IngredientButton {
 
     @FXML
     void searchByIngredient(MouseEvent event) throws SQLException {
-        SceneHandler.getInstance().hideDrinkInfo();
+        SceneHandler.getInstance().hide();
         APIHandler.getInstance().addCards(DatabaseHandler.getInstance().searchByIngredient( this.ingredientButton.getText() ));
     }
 
