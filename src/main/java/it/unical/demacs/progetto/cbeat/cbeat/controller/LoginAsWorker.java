@@ -58,7 +58,6 @@ public class LoginAsWorker implements Initializable {
             System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
             if (AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())) {
-                //TODO - Accesso homepage
                 ActiveEmployee.getInstance().setUsername(usernameText.getText());
 
                 SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());

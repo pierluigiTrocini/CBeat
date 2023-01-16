@@ -47,6 +47,9 @@
 
     -fx-background-radius: 25px;
 }
+.secondary-button:hover{
+-fx-background-color: quaternary;
+}
 
 .special-button{
     -fx-background-color: special-button;
@@ -128,24 +131,32 @@
 
 .staff-middle-lane{
     -fx-background-color: tertiary;
+
 }
 
 .tab {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
-    -fx-background-color: #D1CDCD;
-    -fx-border-color: LoginTab;
-    -fx-border-width: 0px 0px 3px 0px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
 }
 
 .tab:selected {
-    -fx-border-color: #8C1018;
-    -fx-border-width: 0px 0px 2.5px 0px;
+    -fx-border-color: white;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.tab:hover {
+    -fx-border-color: quaternary;
+    -fx-border-width: 0px 0px 3px 0px;
 }
 
 .tab-label {
-    -fx-font-size: 16;
-    -fx-text-fill:  #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-text-fill:  ternary;
+    -fx-font-weight: bold;
+    -fx-text-fill: primary;
+
 }
 
 .tab-header-background {

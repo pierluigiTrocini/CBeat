@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController">
    <top>
       <BorderPane prefHeight="75.0" prefWidth="1280.0" styleClass="staff-top-lane">
          <left>
@@ -22,7 +22,7 @@
             </Label>
          </left>
          <right>
-            <Button fx:id="LogoutButton" mnemonicParsing="false" onMouseClicked="#doLogout" styleClass="secondary-button" text="Logout" BorderPane.alignment="CENTER">
+            <Button fx:id="LogoutButton" mnemonicParsing="false" onMouseClicked="#doLogout" prefHeight="37.0" prefWidth="69.0" styleClass="secondary-button" text="Logout" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="40.0" right="40.0" />
                </BorderPane.margin>
