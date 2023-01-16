@@ -7,10 +7,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class LoginAsWorker implements Initializable {
 
@@ -35,6 +33,11 @@ public class LoginAsWorker implements Initializable {
 
     @FXML
     private Label errorMessage;
+
+    @FXML
+    private CheckBox RememberMe;
+
+    Preferences Preferences;
 
     @FXML
     void backToLogin(MouseEvent event) throws IOException {
@@ -58,6 +61,7 @@ public class LoginAsWorker implements Initializable {
             System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
             if (AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())) {
+                RefreshPreferences();
                 ActiveEmployee.getInstance().setUsername(usernameText.getText());
 
                 SceneHandler.getInstance().createStaffHomepageScene(usernameText.getText());
@@ -82,10 +86,43 @@ public class LoginAsWorker implements Initializable {
         usernameText.setPromptText("username");
         passwordText.setPromptText("password");
 
+        Preferences = Preferences.userNodeForPackage(LoginAsWorker.class);
+
+        if(!CheckPreferences()){
+            usernameText.requestFocus();
+
+        }
+
+
+
         this.errorMessage.setStyle("""
             -fx-text-fill: red;
             -fx-background-color: white;
             -fx-background-radius: 25px;
         """);
+    }
+
+    private boolean CheckPreferences(){
+        if (Preferences != null) {
+            if (Preferences.get("username", null)!=null && !Preferences.get("username", null).isEmpty() && Preferences!=null) {
+                usernameText.setText(Preferences.get("username",null));
+                passwordText.setText(Preferences.get("password",null));
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    private void RefreshPreferences(){
+        if (RememberMe.isSelected()) {
+            Preferences.put("username", usernameText.getText());
+            Preferences.put("password", passwordText.getText());
+
+        } else {
+            Preferences.put("username", "");
+            Preferences.put("password", "");
+        }
+
     }
 }
