@@ -126,5 +126,13 @@ public class Settings {
             
             INSERT INTO Employee Values (?,?);
             """;
+    public static final String PersonalAnalytics= """
+            SELECT * FROM ProcessedOrders WHERE username=?;
+            
+            """;
+    public static final String GeneralAnalytics= """
+            select username,sum(amount) as amount from ProcessedOrders group by username;
+            
+            """;
 
 }

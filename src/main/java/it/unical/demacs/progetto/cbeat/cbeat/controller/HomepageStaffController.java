@@ -1,16 +1,19 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
+import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -19,6 +22,9 @@ public class HomepageStaffController implements Initializable {
 
     @FXML
     private Button LogoutButton;
+
+    @FXML
+    private AnchorPane AnalyticsPane;
 
     @FXML
     private BorderPane borderPane;
@@ -60,6 +66,15 @@ public class HomepageStaffController implements Initializable {
         this.orderScrollPane.prefHeightProperty().bind( this.orderStackPane.heightProperty() );
         this.orderList.prefWidthProperty().bind( this.orderScrollPane.widthProperty() );
         this.orderList.prefHeightProperty().bind( this.orderScrollPane.heightProperty() );
+
+       FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("analytics-view.fxml"));
+        try {
+            Node node=loader.load();
+            this.AnalyticsPane.getChildren().add(node);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         OrderHandler.getInstance().setOrderList( this.orderList );
         OrderHandler.getInstance().refreshOrderList();

@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.*;
 
 public class DatabaseHandler{
     private static DatabaseHandler instance = new DatabaseHandler();
@@ -252,6 +253,45 @@ public class DatabaseHandler{
         return statement.execute();
 
 
+    }
+    public Map<String,Integer> RetrievePersonalAnalytics(String username) throws SQLException {
+        Map <String,Integer> map=new HashMap<String,Integer>();
+
+
+        if( connection != null && !connection.isClosed() ){
+            PreparedStatement statement = connection.prepareStatement(Settings.PersonalAnalytics);
+            statement.setString(1, username);
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+                String Date=rs.getString("date");
+                Integer Amount=rs.getInt("amount");
+                map.put(Date,Amount);
+
+            }
+
+
+        }
+        return new TreeMap<>(map);
+    }
+
+    public Map<String,Integer> RetrieveGeneralAnalytics() throws SQLException {
+        Map <String,Integer> map=new HashMap<String,Integer>();
+
+
+        if( connection != null && !connection.isClosed() ){
+            PreparedStatement statement = connection.prepareStatement(Settings.GeneralAnalytics);
+
+            ResultSet rs=statement.executeQuery();
+            while(rs.next()){
+                String Username=rs.getString("username");
+                Integer Amount=rs.getInt("amount");
+                map.put(Username,Amount);
+
+            }
+
+
+        }
+        return new TreeMap<>(map);
     }
 
 }
