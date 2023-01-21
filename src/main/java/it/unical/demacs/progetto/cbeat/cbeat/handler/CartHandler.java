@@ -68,10 +68,4 @@ public class CartHandler {
             }
         }catch (Exception e){ e.printStackTrace(); }
     }
-
-    public void DEBUGPRINT(){
-        for( CartElement element: this.list ){
-            System.out.println( element.id + "\t" + element.name + "\t" + element.amount );
-        }
-    }
 }

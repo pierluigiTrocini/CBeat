@@ -58,7 +58,6 @@ public class LoginAsWorker implements Initializable {
 
     private void login(){
         if(!usernameText.getText().isEmpty() &&usernameText!=null && !passwordText.getText().isEmpty()&&passwordText!=null) {
-            System.out.println("Username " + usernameText.getText() + "\nPassword " + passwordText.getText());
 
             if (AuthenticationHandler.getInstance().accountAuth(usernameText.getText(), passwordText.getText())) {
                 RefreshPreferences();
