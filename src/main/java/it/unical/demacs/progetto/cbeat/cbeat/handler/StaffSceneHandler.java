@@ -1,6 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.handler;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import animatefx.animation.FadeOut;
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
@@ -20,13 +21,13 @@ public class StaffSceneHandler {
         this.homepageStaffStackPane = homepageStaffStackPane;
     }
 
-    public void showStaffDrinkInfo( Integer drinkId ) throws IOException{
+    public void showStaffDrinkInfo( Integer drinkId ) throws IOException, SQLException{
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("drink-info-staff.fxml"));
         Parent pane = (Parent) loader.load();
         StaffDrinkInfoController controller = loader.getController();
 
         StaffStyleHandler.getInstance().setBlurEffect();
-        controller.init( Integer.toString(drinkId) );
+        controller.init( drinkId );
 
         controller.getBorderPane().prefHeightProperty().bind( this.homepageStaffStackPane.heightProperty() );
         controller.getBorderPane().prefWidthProperty().bind( this.homepageStaffStackPane.widthProperty() );   

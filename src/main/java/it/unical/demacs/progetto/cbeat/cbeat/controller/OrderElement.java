@@ -66,7 +66,7 @@ public class OrderElement implements Initializable {
         fLeft.play();
     }
     @FXML
-    void showInfos(MouseEvent event) throws IOException {
+    void showInfos(MouseEvent event) throws IOException, SQLException {
         StaffSceneHandler.getInstance().showStaffDrinkInfo(id);
     }
 

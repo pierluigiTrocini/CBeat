@@ -1,10 +1,12 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import animatefx.animation.FadeIn;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,8 +51,11 @@ public class StaffDrinkInfoController implements Initializable {
         new FadeIn(this.borderPane).play();
     }
     
-    public void init( String idDrink ){
-        
+    public void init( Integer idDrink ) throws SQLException{
+        ResultSet set = DatabaseHandler.getInstance().staffDrinkInfo("\"" + Integer.toString(idDrink) + "\"" );
+        if( set != null ){
+            System.out.println(set.getString("strIstructionsIT"));
+        }
     }
     
     @FXML

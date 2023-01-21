@@ -116,6 +116,15 @@ public class DatabaseHandler{
         return statement.executeQuery();
     }
 
+    public ResultSet staffDrinkInfo( String id ) throws SQLException {
+        if( connection == null || connection.isClosed() ) return null;
+
+        PreparedStatement statement = connection.prepareStatement(Settings.getInstructionsFromDrink);
+        statement.setString(1, id);
+
+        return statement.executeQuery();
+    }
+
     public ResultSet querySearch( String name ) throws SQLException {
         if( connection == null || connection.isClosed() )
             return null;

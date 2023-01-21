@@ -48,13 +48,18 @@ public class Settings {
             order by strDrinkThumb
             limit 18;
             """;
-
-    public static final String drinkInfo= """
-            select *
-            from Drink
-            where strDrink = ?
-            """;
-
+            
+            public static final String drinkInfo= """
+                    select *
+                    from Drink
+                    where strDrink = ?
+                    """;
+                    
+        public static final String getInstructionsFromDrink= """
+                        select * 
+                        from Drink 
+                        where idDrink = ?
+                        """;
     public static final String searchQuery= """
             select *
             from Drink
@@ -134,40 +139,5 @@ public class Settings {
                 select date, sum(amount) as amount from ProcessedOrders group by date;
             
             """;
-    public static final String getInstructionsFromDrink= """
-                    select strInstructionsIT,
-                        strIngredient1,
-                        strIngredient2,
-                        strIngredient3,
-                        strIngredient4,
-                        strIngredient5,
-                        strIngredient6,
-                        strIngredient7,
-                        strIngredient8,
-                        strIngredient9,
-                        strIngredient10,
-                        strIngredient11,
-                        strIngredient12,
-                        strIngredient13,
-                        strIngredient14,
-                        strIngredient15,
-                        strMeasure1,
-                        strMeasure2,
-                        strMeasure3,
-                        strMeasure4,
-                        strMeasure5,
-                        strMeasure6,
-                        strMeasure7,
-                        strMeasure8,
-                        strMeasure9,
-                        strMeasure10,
-                        strMeasure11,
-                        strMeasure12,
-                        strMeasure13,
-                        strMeasure14,
-                        strMeasure15,
-                        from Drink
-                        where idDrink = ?;
-                    """;
 
 }
