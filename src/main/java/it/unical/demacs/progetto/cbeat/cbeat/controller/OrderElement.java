@@ -2,6 +2,8 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -45,6 +48,7 @@ public class OrderElement implements Initializable {
     public HBox gethBox() { return hBox; }
 
     private Integer id;
+
     @FXML
     void orderProcess(MouseEvent event) {
         FadeOutLeft fLeft = new FadeOutLeft(this.hBox);
@@ -62,8 +66,8 @@ public class OrderElement implements Initializable {
         fLeft.play();
     }
     @FXML
-    void showInfos(MouseEvent event) {
-
+    void showInfos(MouseEvent event) throws IOException {
+        StaffSceneHandler.getInstance().showStaffDrinkInfo(id);
     }
 
     public void init( Integer id,String imgUrl, String drinkName, int drinkAmount, int drinkTable ){

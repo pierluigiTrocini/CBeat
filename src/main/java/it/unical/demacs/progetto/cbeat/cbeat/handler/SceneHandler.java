@@ -5,6 +5,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.controller.CartController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.DrinkInfoController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageClientController;
 import it.unical.demacs.progetto.cbeat.cbeat.controller.HomepageStaffController;
+import it.unical.demacs.progetto.cbeat.cbeat.controller.StaffDrinkInfoController;
 import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXMLLoader;
@@ -25,18 +26,18 @@ import animatefx.animation.FadeOut;
 public class SceneHandler {
     /* Singleton */
     private static  SceneHandler instance = new SceneHandler();
-    public SceneHandler(){}
+    private SceneHandler(){}
     public static SceneHandler getInstance() { return instance; }
 
     private Scene scene;
     private Stage stage;
 
     private BorderPane loginBorderPane;
+
     private StackPane homepageClientStackPane;
+    
 
     public void init( Stage stage ) throws IOException, SQLException {
-
-
 
         this.stage = stage;
 
@@ -136,6 +137,10 @@ public class SceneHandler {
 
         this.homepageClientStackPane.getChildren().add(pane);
     }
+
+
+
+
 
     public void showCart() throws IOException {
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("cart-view.fxml"));

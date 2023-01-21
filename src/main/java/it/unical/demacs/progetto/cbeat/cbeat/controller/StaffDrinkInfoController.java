@@ -3,6 +3,9 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import animatefx.animation.FadeIn;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,17 +38,23 @@ public class StaffDrinkInfoController implements Initializable {
     @FXML
     private BorderPane textBorderPane;
 
-    @FXML
-    void goBack(MouseEvent event) {
-
-    }
+    
+    public BorderPane getBorderPane(){ return this.borderPane; }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.textBorderPane.prefWidthProperty().bind( this.hbox.widthProperty() );
-        this.textBorderPane.prefHeightProperty().bind( this.hbox.widthProperty() );
+        this.textBorderPane.prefHeightProperty().bind( this.hbox.widthProperty() );  
         
+        new FadeIn(this.borderPane).play();
+    }
+    
+    public void init( String idDrink ){
         
     }
-
+    
+    @FXML
+    void goBack(MouseEvent event) {
+        StaffSceneHandler.getInstance().hide();
+    }
 }

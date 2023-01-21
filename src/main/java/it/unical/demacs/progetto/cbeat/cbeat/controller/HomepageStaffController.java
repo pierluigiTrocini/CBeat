@@ -3,6 +3,8 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 import it.unical.demacs.progetto.cbeat.cbeat.HelloApplication;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffStyleHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,6 +77,8 @@ public class HomepageStaffController implements Initializable {
             e.printStackTrace();
         }
 
+        StaffSceneHandler.getInstance().setHomepageStaffStackPane(this.orderStackPane);
+        StaffStyleHandler.getInstance().setHomepageStaffStackPane(this.orderStackPane);
 
         OrderHandler.getInstance().setOrderList( this.orderList );
         OrderHandler.getInstance().refreshOrderList();
