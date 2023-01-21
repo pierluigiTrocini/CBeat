@@ -41,20 +41,14 @@ public class AnalyticsController implements Initializable {
     @FXML
     private NumberAxis yAxis;
 
-    private URL location;
-    private ResourceBundle resources;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
+        this.analytics.setAnimated(false);
         try {
             ShowPersonalChart();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @FXML
@@ -77,10 +71,10 @@ public class AnalyticsController implements Initializable {
         yAxis.setLabel("Ordini processati");
 
         analytics.setTitle("Statistiche di "+ActiveEmployee.getInstance().getUsername());
-        XYChart.Series<String, Integer> series=new XYChart.Series();
+        XYChart.Series<String, Integer> series=new XYChart.Series<String, Integer>();
         series.setName("Statistiche individuali");
 
-        map.forEach((key,value)-> series.getData().add(new XYChart.Data(key,value)
+        map.forEach((key,value)-> series.getData().add(new XYChart.Data<String, Integer>(key,value)
         ));
         analytics.getData().add(series);
 
@@ -96,11 +90,11 @@ public class AnalyticsController implements Initializable {
         xAxis.setLabel("Impiegato");
         yAxis.setLabel("Ordini processati");
 
-        XYChart.Series<String, Integer> series=new XYChart.Series();
+        XYChart.Series<String, Integer> series= new XYChart.Series<String, Integer>();
 
         series.setName("Statistiche personali");
 
-        map.forEach((key,value)-> series.getData().add(new XYChart.Data(key,value)
+        map.forEach((key,value)-> series.getData().add(new XYChart.Data<String, Integer>(key,value)
         ));
         analytics.getData().add(series);
 

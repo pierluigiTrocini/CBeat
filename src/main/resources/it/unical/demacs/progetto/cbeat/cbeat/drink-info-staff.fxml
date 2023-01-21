@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1280.0" styleClass="drink-info" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.StaffDrinkInfoController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#goBack" text="Indietro">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox fx:id="hbox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </BorderPane.margin>
+         <children>
+            <ImageView fx:id="drinkImage" fitHeight="405.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <BorderPane fx:id="textBorderPane" prefHeight="405.0" prefWidth="681.0">
+               <top>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Ingredienti" />
+                        <Text fx:id="ingredientText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ingredient-and-instructions" text="Text" />
+                     </children>
+                  </VBox>
+               </top>
+               <bottom>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Istruzioni" />
+                        <Text fx:id="instructionText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="ingredient-and-instructions" text="Text" />
+                     </children>
+                  </VBox>
+               </bottom>
+            </BorderPane>
+         </children>
+      </HBox>
+   </center>
+   <padding>
+      <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+   </padding>
+</BorderPane>
