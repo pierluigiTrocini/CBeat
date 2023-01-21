@@ -283,7 +283,7 @@ public class DatabaseHandler{
 
             ResultSet rs=statement.executeQuery();
             while(rs.next()){
-                String Username=rs.getString("username");
+                String Username=rs.getString("date");
                 Integer Amount=rs.getInt("amount");
                 map.put(Username,Amount);
 

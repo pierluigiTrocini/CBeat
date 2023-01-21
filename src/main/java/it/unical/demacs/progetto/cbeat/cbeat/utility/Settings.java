@@ -131,7 +131,7 @@ public class Settings {
             
             """;
     public static final String GeneralAnalytics= """
-            select username,sum(amount) as amount from ProcessedOrders group by username;
+                select date, sum(amount) as amount from ProcessedOrders group by date;
             
             """;
 

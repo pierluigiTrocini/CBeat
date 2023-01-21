@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 public class AnalyticsController implements Initializable {
 
     @FXML
-    private LineChart<?, ?> analytics;
+    private LineChart<String, Integer> analytics;
 
     @FXML
     private BorderPane borderPane;
@@ -77,7 +77,7 @@ public class AnalyticsController implements Initializable {
         yAxis.setLabel("Ordini processati");
 
         analytics.setTitle("Statistiche di "+ActiveEmployee.getInstance().getUsername());
-        XYChart.Series series=new XYChart.Series();
+        XYChart.Series<String, Integer> series=new XYChart.Series();
         series.setName("Statistiche individuali");
 
         map.forEach((key,value)-> series.getData().add(new XYChart.Data(key,value)
@@ -96,7 +96,7 @@ public class AnalyticsController implements Initializable {
         xAxis.setLabel("Impiegato");
         yAxis.setLabel("Ordini processati");
 
-        XYChart.Series series=new XYChart.Series();
+        XYChart.Series<String, Integer> series=new XYChart.Series();
 
         series.setName("Statistiche personali");
 
