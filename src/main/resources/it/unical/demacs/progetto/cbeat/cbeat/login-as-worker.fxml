@@ -15,7 +15,7 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css">
          <children>
-            <Button fx:id="goBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="[back]" />
+            <Button fx:id="goBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="indietro" />
             <VBox alignment="CENTER" layoutX="-10.0" layoutY="257.0" prefHeight="207.0" prefWidth="650.0">
                <children>
                   <Label fx:id="errorMessage" />

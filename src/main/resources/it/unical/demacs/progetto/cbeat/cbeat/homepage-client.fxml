@@ -57,11 +57,6 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="randomBtn" mnemonicParsing="false" onMouseClicked="#selectRandom" styleClass="special-button" text="Mi sento fortunato">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
          </children>
