@@ -21,7 +21,7 @@ public class StaffSceneHandler {
         this.homepageStaffStackPane = homepageStaffStackPane;
     }
 
-    public void showStaffDrinkInfo( Integer drinkId ) throws IOException, SQLException{
+    public void showStaffDrinkInfo( String drinkId ) throws IOException, SQLException{
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("drink-info-staff.fxml"));
         Parent pane = (Parent) loader.load();
         StaffDrinkInfoController controller = loader.getController();

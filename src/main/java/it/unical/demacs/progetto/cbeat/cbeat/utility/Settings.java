@@ -58,7 +58,7 @@ public class Settings {
         public static final String getInstructionsFromDrink= """
                         select * 
                         from Drink 
-                        where idDrink = ?
+                        where strDrink = ?
                         """;
     public static final String searchQuery= """
             select *

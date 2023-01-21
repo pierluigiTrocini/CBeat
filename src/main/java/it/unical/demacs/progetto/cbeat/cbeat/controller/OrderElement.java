@@ -67,7 +67,7 @@ public class OrderElement implements Initializable {
     }
     @FXML
     void showInfos(MouseEvent event) throws IOException, SQLException {
-        StaffSceneHandler.getInstance().showStaffDrinkInfo(id);
+        StaffSceneHandler.getInstance().showStaffDrinkInfo(this.orderLabel.getText());
     }
 
     public void init( Integer id,String imgUrl, String drinkName, int drinkAmount, int drinkTable ){

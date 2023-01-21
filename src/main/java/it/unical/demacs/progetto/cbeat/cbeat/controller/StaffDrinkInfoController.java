@@ -11,6 +11,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -46,15 +47,37 @@ public class StaffDrinkInfoController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         this.textBorderPane.prefWidthProperty().bind( this.hbox.widthProperty() );
-        this.textBorderPane.prefHeightProperty().bind( this.hbox.widthProperty() );  
+        this.textBorderPane.prefHeightProperty().bind( this.hbox.widthProperty() ); 
+        
+        this.instructionText.setWrappingWidth(800);
+        this.ingredientText.setWrappingWidth(800);
         
         new FadeIn(this.borderPane).play();
     }
     
-    public void init( Integer idDrink ) throws SQLException{
-        ResultSet set = DatabaseHandler.getInstance().staffDrinkInfo("\"" + Integer.toString(idDrink) + "\"" );
+    public void init( String idDrink ) throws SQLException{
+        ResultSet set = DatabaseHandler.getInstance().staffDrinkInfo("\"" + idDrink + "\"" );
         if( set != null ){
-            System.out.println(set.getString("strIstructionsIT"));
+            //immagini
+            this.drinkImage.setImage( new Image(set.getString("strDrinkThumb").replace("\"", "")) );
+
+            //istruzioni
+            this.instructionText.setText(set.getString("strInstructionsIT")
+                            .replace("\\r","")
+                            .replace("\\n", " ")
+                            .replace("\"", ""));
+
+            //ingredienti
+            String ingredient = "";
+            for( int i = 1; i <= 15; i++ ){
+                String ing = set.getString("strIngredient" + Integer.toString(i)).replace("\"","");
+                String mes = set.getString("strMeasure" + Integer.toString(i)).replace("\"", "");
+
+                if( ing.compareTo("null") != 0 )
+                    ingredient += ing + "   " + "( " + mes + " )  ";
+            }
+            this.ingredientText.setText(ingredient);
+
         }
     }
     
