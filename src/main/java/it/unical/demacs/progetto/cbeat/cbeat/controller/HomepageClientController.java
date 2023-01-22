@@ -107,7 +107,7 @@ public class HomepageClientController implements Initializable {
     @FXML
     void showCart(MouseEvent event) {
         try {
-            SceneHandler.getInstance().showCart();
+            SceneHandler.getInstance().showCart( this.cartBtn );
         }catch (Exception e) { e.printStackTrace(); }
     }
 

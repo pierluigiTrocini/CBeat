@@ -35,15 +35,17 @@ public class CartController implements Initializable {
 
     public BorderPane getBorderPane() { return borderPane; }
 
+    private Button cartButton;
+
     @FXML
     void purchase(MouseEvent event) {
         CartHandler.getInstance().insertOrders();
-        SceneHandler.getInstance().hide();
+        SceneHandler.getInstance().hide( this.cartButton );
     }
 
     @FXML
     void exit(MouseEvent event) {
-        SceneHandler.getInstance().hide();
+        SceneHandler.getInstance().hide( this.cartButton );
     }
 
     @Override
@@ -62,5 +64,9 @@ public class CartController implements Initializable {
 
         new FadeIn(this.borderPane).setSpeed(3.0).play();
 
+    }
+
+    public void init( Button cartBtn ){
+        this.cartButton = cartBtn;
     }
 }

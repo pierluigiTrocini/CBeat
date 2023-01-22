@@ -9,6 +9,7 @@ import it.unical.demacs.progetto.cbeat.cbeat.utility.Settings;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -139,18 +140,23 @@ public class SceneHandler {
 
 
 
-    public void showCart() throws IOException {
+    public void showCart( Button cartBtn ) throws IOException {
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("cart-view.fxml"));
         Parent pane = (Parent) loader.load();
         CartController controller = loader.getController();
+
+        controller.init(cartBtn);
 
         controller.getBorderPane().prefWidthProperty().bind( this.homepageClientStackPane.widthProperty() );
         controller.getBorderPane().prefHeightProperty().bind( this.homepageClientStackPane.heightProperty() );
 
         this.homepageClientStackPane.getChildren().add(pane);
+
+        if( cartBtn != null )
+            cartBtn.setVisible(false);
     }
 
-    public void hide(){
+    public void hide( Button cartBtn ){
         FadeOut fadeOut = new FadeOut(
             this.homepageClientStackPane.getChildren().get(
                 this.homepageClientStackPane.getChildren().size() - 1
@@ -166,6 +172,10 @@ public class SceneHandler {
         );
 
         fadeOut.setSpeed(3.0).play();
+
+            
+        if( cartBtn != null )
+            cartBtn.setVisible(true);
     }
 
     //Sezione staff

@@ -100,11 +100,11 @@ public class DrinkInfoController implements Initializable {
     @FXML
     void addToCart(MouseEvent event) {
         CartHandler.getInstance().addElement( this.itemImageUrl, this.itemLabel, this.itemId );
-        SceneHandler.getInstance().hide();
+        SceneHandler.getInstance().hide( null );
     }
 
     @FXML
     void goBack(MouseEvent event) {
-        SceneHandler.getInstance().hide();
+        SceneHandler.getInstance().hide( null );
     }
 }
