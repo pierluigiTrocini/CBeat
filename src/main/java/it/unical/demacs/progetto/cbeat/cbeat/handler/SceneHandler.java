@@ -73,7 +73,7 @@ public class SceneHandler {
                 this.scene.setRoot(loadRootFromFXML("login-view.fxml"));
 
             this.stage.setScene(scene);
-            mainSettings( Settings.loginTitle ,Settings.loginWidth, Settings.loginHeight, true);
+            mainSettings( Settings.loginTitle ,Settings.loginWidth, Settings.loginHeight, false);
 
 
         }catch (IOException exception){
