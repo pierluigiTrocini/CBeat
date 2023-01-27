@@ -90,7 +90,6 @@ public class ItemListElementController implements Initializable {
         fLeft.setOnFinished(e ->{
             CartHandler.getInstance().remove(this.info);
         });
-        // CartHandler.getInstance().remove( this.info );
         fLeft.play();
     }
 }

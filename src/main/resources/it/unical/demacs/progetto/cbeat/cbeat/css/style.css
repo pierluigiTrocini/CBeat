@@ -207,3 +207,11 @@
 
     -fx-background-color:grey;
 }
+
+.order{
+    -fx-background-colo: transparent;
+}
+
+.order:hover{
+    -fx-background-color: quaternary-hovered;
+}

@@ -22,7 +22,7 @@ public class DatabaseHandler{
     public void databaseConnect() {
         try {
             connection = DriverManager.getConnection(Settings.databaseUrl);
-        } catch (SQLException e) { e.printStackTrace(); } //TODO serve grafica
+        } catch (SQLException e) { e.printStackTrace(); }
     }
 
     public void databaseClose(){

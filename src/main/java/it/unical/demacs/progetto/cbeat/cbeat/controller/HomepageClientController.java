@@ -71,7 +71,6 @@ public class HomepageClientController implements Initializable {
         try {
             APIHandler.getInstance().addCards( DatabaseHandler.getInstance().queryForCards() );
         } catch (Exception e) {
-            // TODO  - Grafica per comunicare l'assenza di risultati
             e.printStackTrace();
         }
 
