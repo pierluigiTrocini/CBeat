@@ -18,7 +18,7 @@ import java.sql.ResultSet;
 
 public class APIHandler {
     private static APIHandler instance = new APIHandler();
-    public APIHandler() {}
+    private APIHandler() {}
     public static APIHandler getInstance(){ return instance; }
 
     private FlowPane itemList;

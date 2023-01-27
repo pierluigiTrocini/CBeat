@@ -5,7 +5,7 @@ import javafx.scene.layout.StackPane;
 
 public class StaffStyleHandler {
     private static StaffStyleHandler instance = new StaffStyleHandler();
-    public StaffStyleHandler() {}
+    private StaffStyleHandler() {}
     public static StaffStyleHandler getInstance() {return instance;}
     
     private StackPane homepageStaffStackPane;

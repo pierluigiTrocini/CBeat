@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 public class OrderHandler {
     public static OrderHandler instance = new OrderHandler();
-    public OrderHandler(){}
+    private OrderHandler(){}
     public static OrderHandler getInstance() { return instance; }
 
     private VBox orderList;

@@ -13,7 +13,7 @@ import java.util.*;
 
 public class DatabaseHandler{
     private static DatabaseHandler instance = new DatabaseHandler();
-    public DatabaseHandler() { this.databaseConnect(); }
+    private DatabaseHandler() { this.databaseConnect(); }
     public static DatabaseHandler getInstance() { return instance; }
 
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CartHandler {
     private static CartHandler instance = new CartHandler();
     public static CartHandler getInstance() { return instance; }
-    public CartHandler() {}
+    private CartHandler() {}
 
     private VBox cart;
     public void setCart(VBox cart) { this.cart = cart; }

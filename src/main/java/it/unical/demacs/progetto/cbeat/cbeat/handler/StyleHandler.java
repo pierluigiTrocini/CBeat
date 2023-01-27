@@ -7,7 +7,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 public class StyleHandler {
     private static StyleHandler instance = new StyleHandler();
-    public StyleHandler() {}
+    private StyleHandler() {}
     public static StyleHandler getInstance() {return instance;}
 
     private StackPane homepageClientStackPane;
