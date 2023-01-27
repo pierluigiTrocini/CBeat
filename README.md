@@ -12,7 +12,7 @@ L'applicazione, offre un servizio per la gestione di un locale di ristorazione. 
 	- Visualizzazione di **informazioni essenziali** al processo dell'ordine
 	- **Analytics** che registrano l'andamento della stagione lavorativa
 
-L'applicazione, implementata attraverso il framework JavaFX, è affiancata sia da un sistema di persistenza, per la gestione su memoria delle informazioni, che da un sistema API, per avere prodotti sempre aggiornati.
+L'applicazione, implementata attraverso il framework JavaFX, è affiancata da un sistema di persistenza, per la gestione su memoria delle informazioni.
 
 ### [importante] Account per accedere alla sezione staff
 - admin [admin]
@@ -35,3 +35,5 @@ L'applicazione, implementata attraverso il framework JavaFX, è affiancata sia d
 ### Dettagli prodotto (sezione staff)
 ![Screenshot_20230127_182139](https://user-images.githubusercontent.com/59370899/215164987-f3ab0111-142d-4dc0-b13c-2ea858845d38.png)
 
+<hr>
+Ringraziamo thecocktaildb.com da cui sono state prese le informazioni relative ai prodotti.
