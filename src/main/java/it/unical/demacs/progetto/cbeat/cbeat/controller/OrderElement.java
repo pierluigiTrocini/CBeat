@@ -2,7 +2,6 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.handler.DatabaseHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.OrderHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StaffSceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;

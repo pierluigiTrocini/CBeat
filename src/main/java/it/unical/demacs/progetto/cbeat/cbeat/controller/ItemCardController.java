@@ -13,7 +13,6 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import animatefx.animation.FadeIn;
 import animatefx.animation.Pulse;
 
 

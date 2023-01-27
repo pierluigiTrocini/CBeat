@@ -3,7 +3,6 @@ package it.unical.demacs.progetto.cbeat.cbeat.controller;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.AuthenticationHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
-import it.unical.demacs.progetto.cbeat.cbeat.model.Employee;
 import it.unical.demacs.progetto.cbeat.cbeat.utility.ActiveEmployee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -85,7 +84,9 @@ public class LoginAsWorker implements Initializable {
         usernameText.setPromptText("username");
         passwordText.setPromptText("password");
 
-        Preferences = Preferences.userNodeForPackage(LoginAsWorker.class);
+        this.goBackBtn.setGraphic(StyleHandler.getInstance().getIcon("mdi2k-keyboard-backspace", 25));
+
+        Preferences = java.util.prefs.Preferences.userNodeForPackage(LoginAsWorker.class);
 
         if(!CheckPreferences()){
             usernameText.requestFocus();

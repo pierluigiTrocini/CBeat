@@ -25,7 +25,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import animatefx.animation.FadeIn;
-import animatefx.animation.FadeOut;
 
 public class DrinkInfoController implements Initializable {
 

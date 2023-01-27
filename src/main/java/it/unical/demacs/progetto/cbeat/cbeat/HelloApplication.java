@@ -1,8 +1,8 @@
 package it.unical.demacs.progetto.cbeat.cbeat;
 
 
-import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 
+import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -18,6 +18,8 @@ public class HelloApplication extends Application {
 
 
         SceneHandler.getInstance().init(stage);
+        
+        
         // DatabaseHandler.getInstance().updateLocalDatabase();
 
     }

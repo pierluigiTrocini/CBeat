@@ -66,6 +66,8 @@ public class HomepageClientController implements Initializable {
 
         this.cartBtn.setGraphic( StyleHandler.getInstance().getIcon("mdi2c-cart-variant", 35) );
 
+        
+
         try {
             APIHandler.getInstance().addCards( DatabaseHandler.getInstance().queryForCards() );
         } catch (Exception e) {

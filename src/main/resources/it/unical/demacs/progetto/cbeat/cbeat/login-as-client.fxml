@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#loginAsClientK" prefHeight="720.0" prefWidth="640.0" styleClass="login" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="it.unical.demacs.progetto.cbeat.cbeat.controller.LoginAsClient">
    <children>
-      <Button fx:id="goBackBtn" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#backToLogin" text="indietro" />
+      <Button fx:id="goBackBtn" layoutX="28.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#backToLogin" />
       <Label fx:id="welcomeLabel" layoutX="174.0" layoutY="225.0" styleClass="login" text="Gentile cliente, inserisci il numero del tuo tavolo " />
       <TextField fx:id="tableTextArea" alignment="CENTER" layoutX="294.0" layoutY="270.0" prefHeight="49.0" prefWidth="82.0" />
       <Label fx:id="errorMessage" alignment="CENTER" layoutX="174.0" layoutY="340.0" prefHeight="20.0" prefWidth="322.0" text="Numero tavolo non valido" textAlignment="CENTER" textFill="RED" />

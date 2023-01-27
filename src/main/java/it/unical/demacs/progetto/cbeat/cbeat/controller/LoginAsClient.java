@@ -1,6 +1,7 @@
 package it.unical.demacs.progetto.cbeat.cbeat.controller;
 
 import it.unical.demacs.progetto.cbeat.cbeat.handler.SceneHandler;
+import it.unical.demacs.progetto.cbeat.cbeat.handler.StyleHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -69,6 +70,8 @@ public class LoginAsClient implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.errorMessage.setVisible(false);
+
+        this.goBackBtn.setGraphic(StyleHandler.getInstance().getIcon("mdi2k-keyboard-backspace", 25));
 
         this.tableTextArea.textProperty().addListener(new ChangeListener<String>() {
             @Override

@@ -17,7 +17,6 @@ import javafx.scene.layout.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HomepageStaffController implements Initializable {
