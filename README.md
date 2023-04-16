@@ -7,7 +7,7 @@ L'applicazione, offre un servizio per la gestione di un locale di ristorazione. 
 - Funzionalità per i **clienti**
 	- **Navigazione e ricerca dei prodotti**, affiancate da sistemi di filtro dei risultati e di ricerca avanzata
 	- **Gestione del carrello**, in cui il cliente può confermare il proprio ordine
-- Funzionaità per i **dipendenti**
+- Funzionalità per i **dipendenti**
 	- **Lista aggiornata delle ordinazioni**
 	- Visualizzazione di **informazioni essenziali** al processo dell'ordine
 	- **Analytics** che registrano l'andamento della stagione lavorativa
